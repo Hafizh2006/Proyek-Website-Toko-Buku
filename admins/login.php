@@ -1,6 +1,8 @@
 <?php 
 session_start();
-require "../config/functions.php";
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+require "../actions/loginAdmin_process.php";
 
 if (isset($_POST['login'])){
     if ($_POST['name'] !== cekUsername($_POST['name']) && $_POST['password'] === cekPassword($_POST['password'])) {
@@ -29,16 +31,9 @@ if (isset($_SESSION['login'])) {
         exit;
     }
 }
-
+ require_once "../includes/header.php";
 ?>
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
+<title>Login Page</title>
 </head>
 <body>
     <div>
@@ -67,5 +62,8 @@ if (isset($_SESSION['login'])) {
             </ul>
         </form>
     </div>
-</body>
-</html>
+<?php 
+
+require_once "../includes/footer.php";
+
+?>
