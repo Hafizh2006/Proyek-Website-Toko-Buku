@@ -29,7 +29,7 @@ function verifikasiPassword($data){
     $password = htmlspecialchars($data['password']);
 
     $query = "SELECT password_user FROM user WHERE password_user = :password_user";
-    $stmt = $db->query($query);
+    $stmt = $db->prepare($query);
     $stmt->bindParam('password_user', $password);
     $stmt->execute();
 

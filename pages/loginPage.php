@@ -85,7 +85,7 @@ require_once "../includes/header.php";
 
     </form>
     <p class="belum-punya-akun-daftar">
-      Belum punya akun? <a href="#" class="daftar-link">Daftar</a>
+      Belum punya akun? <a href="/proyek-webs/Proyek-Website-Toko-Buku/pages/signUpPage.php"class="daftar-link">Daftar</a>
     </p>
     
   </div>

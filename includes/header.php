@@ -34,4 +34,5 @@
 	<!-- Custom stlylesheet -->
 	<link type="text/css" rel="stylesheet" href="/proyek-webs/Proyek-Website-Toko-Buku/Assets/Css/style1.css"/>
   <link type="text/css" rel="stylesheet" href="/proyek-webs/Proyek-Website-Toko-Buku/Assets/Css/style.css"/>
+  <link rel="stylesheet" href="/proyek-webs/Proyek-Website-Toko-Buku/Assets/Css/SignUpPage.css">
 

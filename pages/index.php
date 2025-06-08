@@ -21,7 +21,7 @@ if(isset($_SESSION['submit'])) {
 // Require
 require_once "/home/ardyan/Documents/Devlopment/Kuliah/Project/proyek-webs/Proyek-Website-Toko-Buku/config/const.php";
 require_once ROOT_PATH . "actions/login_process.php";
-require_once ROOT_PATH.  "actions/signup_process.php";
+require_once ROOT_PATH.  "actions/signUp_process.php";
 
 // Ambil data User suatu function menggunakan $_SESSION['dataLogin] yang menyimpan data $_POST dari form login
 $dataUser = ambilDataUser($user);
