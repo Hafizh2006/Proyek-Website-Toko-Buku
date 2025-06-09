@@ -4,18 +4,18 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 session_start();
 
-// Validasi Session
-if(isset($_SESSION['submit'])) {
-	$user = $_SESSION['dataLogin'];
-	if (!$_SESSION['submit']){
-		header("Location:../pages/loginPage.php");
-    	exit;
-	}
+// // Validasi Session
+// if(isset($_SESSION['submit'])) {
+// 	$user = $_SESSION['dataLogin'];
+// 	if (!$_SESSION['submit']){
+// 		header("Location:../pages/loginPage.php");
+//     	exit;
+// 	}
 
-} else {
-	header("Location:/proyek-webs/Proyek-Website-Toko-Buku/pages/loginPage.php");
-    exit;
-}
+// } else {
+// 	header("Location:/proyek-webs/Proyek-Website-Toko-Buku/pages/loginPage.php");
+//     exit;
+// }
 
 
 // Require
@@ -24,8 +24,9 @@ require_once ROOT_PATH . "actions/login_process.php";
 require_once ROOT_PATH.  "actions/signUp_process.php";
 
 // Ambil data User suatu function menggunakan $_SESSION['dataLogin] yang menyimpan data $_POST dari form login
-$dataUser = ambilDataUser($user);
+// $dataUser = ambilDataUser($user);
 
+// header tampilan website 
 require_once "/home/ardyan/Documents/Devlopment/Kuliah/Project/proyek-webs/Proyek-Website-Toko-Buku/includes/header.php";
 ?>
 	<title>Home</title>
@@ -39,12 +40,12 @@ require_once "/home/ardyan/Documents/Devlopment/Kuliah/Project/proyek-webs/Proye
 				<div class="container">
 					<ul class="header-links pull-left">
 						<li><a href="#"><i class="fa fa-phone"></i><?php  ?></a></li>
-						<li><a href="#"><i class="fa fa-envelope-o"></i> <?php echo $dataUser['email_user'];?></a></li>
-						<li><a href="#"><i class="fa fa-map-marker"></i> <?php echo $dataUser['alamat_user'];?></a></li>
+						<li><a href="#"><i class="fa fa-envelope-o"></i> <?php //echo $dataUser['email_user'];?></a></li>
+						<li><a href="#"><i class="fa fa-map-marker"></i> <?php //echo $dataUser['alamat_user'];?></a></li>
 					</ul>
 					<ul class="header-links pull-right">
 						<li><a href="#"><i class="fa fa-dollar"></i> Rp </a></li>
-						<li><a href="#"><i class="fa fa-user-o"></i><?php echo $dataUser['nama_user'];?></a></li>
+						<li><a href="#"><i class="fa fa-user-o"></i><?php //echo $dataUser['nama_user'];?></a></li>
 					</ul>
 				</div>
 				<!-- MEMPERBAIKI INI -->

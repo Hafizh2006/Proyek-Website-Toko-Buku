@@ -4,10 +4,10 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 session_start();
 
-if (isset($_SESSION['submit'])){
-  header("Location:../pages/index.php");
-  exit;
-}
+// if (isset($_SESSION['submit'])){
+//   header("Location:../pages/index.php");
+//   exit;
+// }
 require_once "../actions/login_process.php";
 require_once "../config/const.php";
 // Membuat variabel checking
@@ -15,25 +15,25 @@ require_once "../config/const.php";
 $hasil1 = "";
 $hasil2 = "";
 
-if (isset($_POST['submit']))
-{ 
-  $data = $_POST;
-  $email = verifikasiEmail($data);
-  $password = verifikasiPassword($data);   
-  if ($email == True &&  $password == True){
-      $_SESSION['submit'] = true;
-      $_SESSION['dataLogin'] = $data;
-      header("Location:/proyek-webs/Proyek-Website-Toko-Buku/pages/index.php");
-      exit;
-  }elseif ($email == False && $password == True){
-      $hasil1 = "Email tidak ada";
-  } else if ($email == True && $password == False) {
-      $hasil2 = "Password Salah";
-  } else if ($email == False && $password == False) {
-      $hasil1 = "Email tidak ada";  
-      $hasil2 = "Password Salah";
-  }      
-}
+// if (isset($_POST['submit']))
+// { 
+//   $data = $_POST;
+//   $email = verifikasiEmail($data);
+//   $password = verifikasiPassword($data);   
+//   if ($email == True &&  $password == True){
+//       $_SESSION['submit'] = true;
+//       $_SESSION['dataLogin'] = $data;
+//       header("Location:/proyek-webs/Proyek-Website-Toko-Buku/pages/index.php");
+//       exit;
+//   }elseif ($email == False && $password == True){
+//       $hasil1 = "Email tidak ada";
+//   } else if ($email == True && $password == False) {
+//       $hasil2 = "Password Salah";
+//   } else if ($email == False && $password == False) {
+//       $hasil1 = "Email tidak ada";  
+//       $hasil2 = "Password Salah";
+//   }      
+// }
 
 
 
