@@ -19,38 +19,21 @@ session_start();
 
 
 // Require
-require_once "/home/ardyan/Documents/Devlopment/Kuliah/Project/proyek-webs/Proyek-Website-Toko-Buku/config/const.php";
+require_once dirname(__DIR__) . '/' ."/config/const.php";
 require_once ROOT_PATH . "actions/login_process.php";
-require_once ROOT_PATH.  "actions/signUp_process.php";
+require_once ROOT_PATH .  "actions/signUp_process.php";
 
 // Ambil data User suatu function menggunakan $_SESSION['dataLogin] yang menyimpan data $_POST dari form login
 // $dataUser = ambilDataUser($user);
 
 // header tampilan website 
-require_once "/home/ardyan/Documents/Devlopment/Kuliah/Project/proyek-webs/Proyek-Website-Toko-Buku/includes/header.php";
+require_once ROOT_PATH . "/includes/header.php";
 ?>
-	<title>Home</title>
+	<title>Toko Sigma.</title>
     </head>
 	<body>
 		<!-- HEADER -->
 		<header>
-			<!-- TOP HEADER -->
-			<div id="top-header">
-				<!-- MEMPERBAIKI INI -->
-				<div class="container">
-					<ul class="header-links pull-left">
-						<li><a href="#"><i class="fa fa-phone"></i><?php  ?></a></li>
-						<li><a href="#"><i class="fa fa-envelope-o"></i> <?php //echo $dataUser['email_user'];?></a></li>
-						<li><a href="#"><i class="fa fa-map-marker"></i> <?php //echo $dataUser['alamat_user'];?></a></li>
-					</ul>
-					<ul class="header-links pull-right">
-						<li><a href="#"><i class="fa fa-dollar"></i> Rp </a></li>
-						<li><a href="#"><i class="fa fa-user-o"></i><?php //echo $dataUser['nama_user'];?></a></li>
-					</ul>
-				</div>
-				<!-- MEMPERBAIKI INI -->
-			</div>
-			<!-- /TOP HEADER -->
 
 			<!-- MAIN HEADER -->
 			<div id="header">
@@ -62,7 +45,7 @@ require_once "/home/ardyan/Documents/Devlopment/Kuliah/Project/proyek-webs/Proye
 						<div class="col-md-3">
 							<div class="header-logo">
 								<a href="#" class="logo">
-									<img src="./img/logo.png" alt="">
+									<img src="/Proyek-Website-Toko-Buku/Assets/Img/logoweb.png" alt="">
 								</a>
 							</div>
 						</div>
@@ -76,6 +59,14 @@ require_once "/home/ardyan/Documents/Devlopment/Kuliah/Project/proyek-webs/Proye
 										<option value="0">All Categories</option>
 										<option value="1">Ekonomi</option>
 										<option value="2">Romansa</option>
+										<option value="3">Misteri,Thriller, & Suspense</option>
+										<option value="3">Fantasi</option>
+										<option value="4">Fiksi Ilmiah</option>
+										<option value="5">Horor</option>
+										<option value="6">Fiksi Sejarah</option>
+										<option value="7">Sastra & Klasik</option>
+										<option value="8">Remaja</option>
+										<option value="9">Buku Anak</option>
 									</select>
 									<input class="input" placeholder="Search here">
 									<button class="search-btn">Search</button>
@@ -108,7 +99,7 @@ require_once "/home/ardyan/Documents/Devlopment/Kuliah/Project/proyek-webs/Proye
 										<div class="cart-list">
 											<div class="product-widget">
 												<div class="product-img">
-													<img src="./img/product01.png" alt="">
+													<img src="/Proyek-Website-Toko-Buku/Assets/Img/tr2.png" alt="">
 												</div>
 												<div class="product-body">
 													<h3 class="product-name"><a href="#">product name goes here</a></h3>
@@ -119,7 +110,7 @@ require_once "/home/ardyan/Documents/Devlopment/Kuliah/Project/proyek-webs/Proye
 
 											<div class="product-widget">
 												<div class="product-img">
-													<img src="/proyek-webs/Proyek-Website-Toko-Buku/img/product02.png" alt="">
+													<img src="/proyek-webs/Proyek-Website-Toko-Buku/img/tr1.png" alt="">
 												</div>
 												<div class="product-body">
 													<h3 class="product-name"><a href="#">product name goes here</a></h3>
@@ -139,6 +130,22 @@ require_once "/home/ardyan/Documents/Devlopment/Kuliah/Project/proyek-webs/Proye
 									</div>
 								</div>
 								<!-- /Cart -->
+
+								<!-- Profile -->
+								<div class="dropdown profile-dropdown-ctn">
+									<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true" style="cursor:pointer;">
+										<i class="fa fa-user-circle"></i>
+										<span>Profil</span>
+									</a>
+									<div class="profile-dropdown">
+										<div class="profile-links">
+											<a href="#"><i class="fa fa-user"></i> Profil Saya</a>
+											<a href="#"><i class="fa fa-cog"></i> Pengaturan</a>
+											<a href="/Proyek-Website-Toko-Buku/pages/logout.php"><i class="fa fa-sign-out"></i> Logout</a>
+										</div>
+									</div>
+								</div>
+								<!-- /Profile -->
 
 								<!-- Menu Toogle -->
 								<div class="menu-toggle">
@@ -169,12 +176,12 @@ require_once "/home/ardyan/Documents/Devlopment/Kuliah/Project/proyek-webs/Proye
 					<!-- NAV -->
 					<ul class="main-nav nav navbar-nav">
 						<li class="active"><a href="#">Home</a></li>
-						<li><a href="#">Hot Deals</a></li>
+						<li><a href="#">Promo Spesial</a></li>
 						<li><a href="#">Categories</a></li>
-						<li><a href="#">Laptops</a></li>
-						<li><a href="#">Smartphones</a></li>
-						<li><a href="#">Cameras</a></li>
-						<li><a href="#">Accessories</a></li>
+						<li><a href="#">Novel</a></li>
+						<li><a href="#">Komik & Manga</a></li>
+						<li><a href="#">Buku Anak</a></li>
+						<li><a href="#">Pendidikan</a></li>
 					</ul>
 					<!-- /NAV -->
 				</div>
@@ -194,11 +201,11 @@ require_once "/home/ardyan/Documents/Devlopment/Kuliah/Project/proyek-webs/Proye
 					<div class="col-md-4 col-xs-6">
 						<div class="shop">
 							<div class="shop-img">
-								<img src="./img/shop01.png" alt="">
+								<img src="/Proyek-Website-Toko-Buku/Assets/Img/tereliye.png" alt="">
 							</div>
 							<div class="shop-body">
-								<h3>Laptop<br>Collection</h3>
-								<a href="#" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
+								<h3>Koleksi Novel<br>Terbaru</h3>
+								<a href="#" class="cta-btn"> <i class="fa fa-arrow-circle-right"></i></a>
 							</div>
 						</div>
 					</div>
@@ -208,11 +215,11 @@ require_once "/home/ardyan/Documents/Devlopment/Kuliah/Project/proyek-webs/Proye
 					<div class="col-md-4 col-xs-6">
 						<div class="shop">
 							<div class="shop-img">
-								<img src="./img/shop03.png" alt="">
+								<img src="/Proyek-Website-Toko-Buku/Assets/Img/anakanak.jpg" alt="">
 							</div>
 							<div class="shop-body">
-								<h3>Accessories<br>Collection</h3>
-								<a href="#" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
+								<h3>Dunia Imajinasi<br>Anak</h3>
+								<a href="#" class="cta-btn"> <i class="fa fa-arrow-circle-right"></i></a>
 							</div>
 						</div>
 					</div>
@@ -222,11 +229,11 @@ require_once "/home/ardyan/Documents/Devlopment/Kuliah/Project/proyek-webs/Proye
 					<div class="col-md-4 col-xs-6">
 						<div class="shop">
 							<div class="shop-img">
-								<img src="./img/shop02.png" alt="">
+								<img src="/Proyek-Website-Toko-Buku/Assets/Img/petualangandalamgambar.png" alt="">
 							</div>
 							<div class="shop-body">
-								<h3>Cameras<br>Collection</h3>
-								<a href="#" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
+								<h3>Petualangan Dalam<br>Gambar</h3>
+								<a href="#" class="cta-btn"> <i class="fa fa-arrow-circle-right"></i></a>
 							</div>
 						</div>
 					</div>
@@ -248,13 +255,14 @@ require_once "/home/ardyan/Documents/Devlopment/Kuliah/Project/proyek-webs/Proye
 					<!-- section title -->
 					<div class="col-md-12">
 						<div class="section-title">
-							<h3 class="title">New Products</h3>
+							<h3 class="title">Buku Baru</h3>
 							<div class="section-nav">
 								<ul class="section-tab-nav tab-nav">
-									<li class="active"><a data-toggle="tab" href="#tab1">Laptops</a></li>
-									<li><a data-toggle="tab" href="#tab1">Smartphones</a></li>
-									<li><a data-toggle="tab" href="#tab1">Cameras</a></li>
-									<li><a data-toggle="tab" href="#tab1">Accessories</a></li>
+									<li class="active"><a data-toggle="tab" href="#tab1">Semua</a></li>
+									<li><a data-toggle="tab" href="#tab1">Novel</a></li>
+									<li><a data-toggle="tab" href="#tab1">Komik</a></li>
+									<li><a data-toggle="tab" href="#tab1">Pendidikan</a></li>
+									<li><a data-toggle="tab" href="#tab1">Buku Anak</a></li>
 								</ul>
 							</div>
 						</div>
@@ -271,26 +279,19 @@ require_once "/home/ardyan/Documents/Devlopment/Kuliah/Project/proyek-webs/Proye
 										<!-- product -->
 										<div class="product">
 											<div class="product-img">
-												<img src="./img/product01.png" alt="">
+												<img src="/Proyek-Website-Toko-Buku/Assets/Img/tr2.png" alt="">
 												<div class="product-label">
 													<span class="sale">-30%</span>
 													<span class="new">NEW</span>
 												</div>
 											</div>
 											<div class="product-body">
-												<p class="product-category">Category</p>
-												<h3 class="product-name"><a href="#">product name goes here</a></h3>
+												<p class="product-category">Novel</p>
+												<h3 class="product-name"><a href="#">Hujan</a></h3>
 												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-												<div class="product-rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-												</div>
 												<div class="product-btns">
 													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-													<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
+													
 													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
 												</div>
 											</div>
@@ -303,25 +304,19 @@ require_once "/home/ardyan/Documents/Devlopment/Kuliah/Project/proyek-webs/Proye
 										<!-- product -->
 										<div class="product">
 											<div class="product-img">
-												<img src="./img/product02.png" alt="">
+												<img src="/Proyek-Website-Toko-Buku/Assets/Img/tr1.png" alt="">
 												<div class="product-label">
 													<span class="new">NEW</span>
 												</div>
 											</div>
 											<div class="product-body">
-												<p class="product-category">Category</p>
-												<h3 class="product-name"><a href="#">product name goes here</a></h3>
+												<p class="product-category">Novel</p>
+												<h3 class="product-name"><a href="#">Bumi</a></h3>
 												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-												<div class="product-rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star-o"></i>
-												</div>
+										
 												<div class="product-btns">
 													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-													<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
+													
 													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
 												</div>
 											</div>
@@ -334,20 +329,19 @@ require_once "/home/ardyan/Documents/Devlopment/Kuliah/Project/proyek-webs/Proye
 										<!-- product -->
 										<div class="product">
 											<div class="product-img">
-												<img src="./img/product03.png" alt="">
+												<img src="/Proyek-Website-Toko-Buku/Assets/Img/tr3.png" alt="">
 												<div class="product-label">
 													<span class="sale">-30%</span>
 												</div>
 											</div>
 											<div class="product-body">
-												<p class="product-category">Category</p>
-												<h3 class="product-name"><a href="#">product name goes here</a></h3>
+												<p class="product-category">Novel</p>
+												<h3 class="product-name"><a href="#">Pulang</a></h3>
 												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-												<div class="product-rating">
-												</div>
+												
 												<div class="product-btns">
 													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-													<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
+													
 													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
 												</div>
 											</div>
@@ -360,22 +354,16 @@ require_once "/home/ardyan/Documents/Devlopment/Kuliah/Project/proyek-webs/Proye
 										<!-- product -->
 										<div class="product">
 											<div class="product-img">
-												<img src="./img/product04.png" alt="">
+												<img src="/Proyek-Website-Toko-Buku/Assets/Img/tr4.png" alt="">
 											</div>
 											<div class="product-body">
 												<p class="product-category">Category</p>
 												<h3 class="product-name"><a href="#">product name goes here</a></h3>
 												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-												<div class="product-rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-												</div>
+												
 												<div class="product-btns">
 													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-													<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
+													
 													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
 												</div>
 											</div>
@@ -388,22 +376,16 @@ require_once "/home/ardyan/Documents/Devlopment/Kuliah/Project/proyek-webs/Proye
 										<!-- product -->
 										<div class="product">
 											<div class="product-img">
-												<img src="./img/product05.png" alt="">
+												<img src="/Proyek-Website-Toko-Buku/Assets/Img/tr5.png" alt="">
 											</div>
 											<div class="product-body">
 												<p class="product-category">Category</p>
 												<h3 class="product-name"><a href="#">product name goes here</a></h3>
 												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-												<div class="product-rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-												</div>
+												
 												<div class="product-btns">
 													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-													<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
+													
 													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
 												</div>
 											</div>
@@ -413,7 +395,7 @@ require_once "/home/ardyan/Documents/Devlopment/Kuliah/Project/proyek-webs/Proye
 										</div>
 										<!-- /product -->
 									</div>
-									<div id="slick-nav-1" class="products-slick-nav"></div>
+									
 								</div>
 								<!-- /tab -->
 							</div>
@@ -428,49 +410,7 @@ require_once "/home/ardyan/Documents/Devlopment/Kuliah/Project/proyek-webs/Proye
 		<!-- /SECTION -->
 
 		<!-- HOT DEAL SECTION -->
-		<div id="hot-deal" class="section">
-			<!-- container -->
-			<div class="container">
-				<!-- row -->
-				<div class="row">
-					<div class="col-md-12">
-						<div class="hot-deal">
-							<ul class="hot-deal-countdown">
-								<li>
-									<div>
-										<h3>02</h3>
-										<span>Days</span>
-									</div>
-								</li>
-								<li>
-									<div>
-										<h3>10</h3>
-										<span>Hours</span>
-									</div>
-								</li>
-								<li>
-									<div>
-										<h3>34</h3>
-										<span>Mins</span>
-									</div>
-								</li>
-								<li>
-									<div>
-										<h3>60</h3>
-										<span>Secs</span>
-									</div>
-								</li>
-							</ul>
-							<h2 class="text-uppercase">hot deal this week</h2>
-							<p>New Collection Up to 50% OFF</p>
-							<a class="primary-btn cta-btn" href="#">Shop now</a>
-						</div>
-					</div>
-				</div>
-				<!-- /row -->
-			</div>
-			<!-- /container -->
-		</div>
+
 		<!-- /HOT DEAL SECTION -->
 
 		<!-- SECTION -->
@@ -483,13 +423,14 @@ require_once "/home/ardyan/Documents/Devlopment/Kuliah/Project/proyek-webs/Proye
 					<!-- section title -->
 					<div class="col-md-12">
 						<div class="section-title">
-							<h3 class="title">Top selling</h3>
+							<h3 class="title">Top selling Book</h3>
 							<div class="section-nav">
 								<ul class="section-tab-nav tab-nav">
-									<li class="active"><a data-toggle="tab" href="#tab2">Laptops</a></li>
-									<li><a data-toggle="tab" href="#tab2">Smartphones</a></li>
-									<li><a data-toggle="tab" href="#tab2">Cameras</a></li>
-									<li><a data-toggle="tab" href="#tab2">Accessories</a></li>
+									<li class="active"><a data-toggle="tab" href="#tab2">Semua</a></li>
+									<li><a data-toggle="tab" href="#tab2">Novel</a></li>
+									<li><a data-toggle="tab" href="#tab2">Komik</a></li>
+									<li><a data-toggle="tab" href="#tab2">Pendidikan</a></li>
+									<li><a data-toggle="tab" href="#tab2">Buku Anak</a></li>
 								</ul>
 							</div>
 						</div>
@@ -506,7 +447,7 @@ require_once "/home/ardyan/Documents/Devlopment/Kuliah/Project/proyek-webs/Proye
 										<!-- product -->
 										<div class="product">
 											<div class="product-img">
-												<img src="./img/product06.png" alt="">
+												<img src="/Proyek-Website-Toko-Buku/Assets/Img/tr6.png" alt="">
 												<div class="product-label">
 													<span class="sale">-30%</span>
 													<span class="new">NEW</span>
@@ -516,16 +457,10 @@ require_once "/home/ardyan/Documents/Devlopment/Kuliah/Project/proyek-webs/Proye
 												<p class="product-category">Category</p>
 												<h3 class="product-name"><a href="#">product name goes here</a></h3>
 												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-												<div class="product-rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-												</div>
+												
 												<div class="product-btns">
 													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-													<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
+													
 													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
 												</div>
 											</div>
@@ -538,7 +473,7 @@ require_once "/home/ardyan/Documents/Devlopment/Kuliah/Project/proyek-webs/Proye
 										<!-- product -->
 										<div class="product">
 											<div class="product-img">
-												<img src="./img/product07.png" alt="">
+												<img src="/Proyek-Website-Toko-Buku/Assets/Img/tr7.png" alt="">
 												<div class="product-label">
 													<span class="new">NEW</span>
 												</div>
@@ -547,16 +482,10 @@ require_once "/home/ardyan/Documents/Devlopment/Kuliah/Project/proyek-webs/Proye
 												<p class="product-category">Category</p>
 												<h3 class="product-name"><a href="#">product name goes here</a></h3>
 												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-												<div class="product-rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star-o"></i>
-												</div>
+											
 												<div class="product-btns">
 													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-													<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
+													
 													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
 												</div>
 											</div>
@@ -569,7 +498,7 @@ require_once "/home/ardyan/Documents/Devlopment/Kuliah/Project/proyek-webs/Proye
 										<!-- product -->
 										<div class="product">
 											<div class="product-img">
-												<img src="./img/product08.png" alt="">
+												<img src="/Proyek-Website-Toko-Buku/Assets/Img/tr8.png" alt="">
 												<div class="product-label">
 													<span class="sale">-30%</span>
 												</div>
@@ -578,11 +507,10 @@ require_once "/home/ardyan/Documents/Devlopment/Kuliah/Project/proyek-webs/Proye
 												<p class="product-category">Category</p>
 												<h3 class="product-name"><a href="#">product name goes here</a></h3>
 												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-												<div class="product-rating">
-												</div>
+												
 												<div class="product-btns">
 													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-													<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
+													
 													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
 												</div>
 											</div>
@@ -595,22 +523,16 @@ require_once "/home/ardyan/Documents/Devlopment/Kuliah/Project/proyek-webs/Proye
 										<!-- product -->
 										<div class="product">
 											<div class="product-img">
-												<img src="./img/product09.png" alt="">
+												<img src="/Proyek-Website-Toko-Buku/Assets/Img/tr9.png" alt="">
 											</div>
 											<div class="product-body">
 												<p class="product-category">Category</p>
 												<h3 class="product-name"><a href="#">product name goes here</a></h3>
 												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-												<div class="product-rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-												</div>
+												
 												<div class="product-btns">
 													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-													<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
+													
 													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
 												</div>
 											</div>
@@ -623,22 +545,20 @@ require_once "/home/ardyan/Documents/Devlopment/Kuliah/Project/proyek-webs/Proye
 										<!-- product -->
 										<div class="product">
 											<div class="product-img">
-												<img src="./img/product01.png" alt="">
+												<img src="/Proyek-Website-Toko-Buku/Assets/Img/tr2.png" alt="">
+												<div class="product-label">
+													<span class="sale">-30%</span>
+													<span class="new">NEW</span>
+												</div>
 											</div>
 											<div class="product-body">
-												<p class="product-category">Category</p>
-												<h3 class="product-name"><a href="#">product name goes here</a></h3>
+												<p class="product-category">Novel</p>
+												<h3 class="product-name"><a href="#">Hujan</a></h3>
 												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-												<div class="product-rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-												</div>
+												
 												<div class="product-btns">
 													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-													<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
+													
 													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
 												</div>
 											</div>
@@ -648,7 +568,7 @@ require_once "/home/ardyan/Documents/Devlopment/Kuliah/Project/proyek-webs/Proye
 										</div>
 										<!-- /product -->
 									</div>
-									<div id="slick-nav-2" class="products-slick-nav"></div>
+									
 								</div>
 								<!-- /tab -->
 							</div>
@@ -681,7 +601,7 @@ require_once "/home/ardyan/Documents/Devlopment/Kuliah/Project/proyek-webs/Proye
 								<!-- product widget -->
 								<div class="product-widget">
 									<div class="product-img">
-										<img src="./img/product07.png" alt="">
+										<img src="/Proyek-Website-Toko-Buku/Assets/Img/tr2.png" alt="">
 									</div>
 									<div class="product-body">
 										<p class="product-category">Category</p>
@@ -694,7 +614,7 @@ require_once "/home/ardyan/Documents/Devlopment/Kuliah/Project/proyek-webs/Proye
 								<!-- product widget -->
 								<div class="product-widget">
 									<div class="product-img">
-										<img src="./img/product08.png" alt="">
+										<img src="/Proyek-Website-Toko-Buku/Assets/Img/tr2.png" alt="">
 									</div>
 									<div class="product-body">
 										<p class="product-category">Category</p>
@@ -707,7 +627,7 @@ require_once "/home/ardyan/Documents/Devlopment/Kuliah/Project/proyek-webs/Proye
 								<!-- product widget -->
 								<div class="product-widget">
 									<div class="product-img">
-										<img src="./img/product09.png" alt="">
+										<img src="/Proyek-Website-Toko-Buku/Assets/Img/tr9.png" alt="">
 									</div>
 									<div class="product-body">
 										<p class="product-category">Category</p>
@@ -722,7 +642,7 @@ require_once "/home/ardyan/Documents/Devlopment/Kuliah/Project/proyek-webs/Proye
 								<!-- product widget -->
 								<div class="product-widget">
 									<div class="product-img">
-										<img src="./img/product01.png" alt="">
+										<img src="/Proyek-Website-Toko-Buku/Assets/Img/tr2.png" alt="">
 									</div>
 									<div class="product-body">
 										<p class="product-category">Category</p>
@@ -735,7 +655,8 @@ require_once "/home/ardyan/Documents/Devlopment/Kuliah/Project/proyek-webs/Proye
 								<!-- product widget -->
 								<div class="product-widget">
 									<div class="product-img">
-										<img src="./img/product02.png" alt="">
+										<img src="/Proyek-Website-Toko-Buku/Assets/Img/bookproduct (1)
+										.png" alt="">
 									</div>
 									<div class="product-body">
 										<p class="product-category">Category</p>
@@ -748,7 +669,7 @@ require_once "/home/ardyan/Documents/Devlopment/Kuliah/Project/proyek-webs/Proye
 								<!-- product widget -->
 								<div class="product-widget">
 									<div class="product-img">
-										<img src="./img/product03.png" alt="">
+										<img src="/Proyek-Website-Toko-Buku/Assets/Img/tr3.png" alt="">
 									</div>
 									<div class="product-body">
 										<p class="product-category">Category</p>
@@ -774,7 +695,7 @@ require_once "/home/ardyan/Documents/Devlopment/Kuliah/Project/proyek-webs/Proye
 								<!-- product widget -->
 								<div class="product-widget">
 									<div class="product-img">
-										<img src="./img/product04.png" alt="">
+										<img src="/Proyek-Website-Toko-Buku/Assets/Img/tr4.png" alt="">
 									</div>
 									<div class="product-body">
 										<p class="product-category">Category</p>
@@ -787,7 +708,7 @@ require_once "/home/ardyan/Documents/Devlopment/Kuliah/Project/proyek-webs/Proye
 								<!-- product widget -->
 								<div class="product-widget">
 									<div class="product-img">
-										<img src="./img/product05.png" alt="">
+										<img src="/Proyek-Website-Toko-Buku/Assets/Img/tr5.png" alt="">
 									</div>
 									<div class="product-body">
 										<p class="product-category">Category</p>
@@ -800,7 +721,7 @@ require_once "/home/ardyan/Documents/Devlopment/Kuliah/Project/proyek-webs/Proye
 								<!-- product widget -->
 								<div class="product-widget">
 									<div class="product-img">
-										<img src="./img/product06.png" alt="">
+										<img src="/Proyek-Website-Toko-Buku/Assets/Img/tr6.png" alt="">
 									</div>
 									<div class="product-body">
 										<p class="product-category">Category</p>
@@ -815,7 +736,7 @@ require_once "/home/ardyan/Documents/Devlopment/Kuliah/Project/proyek-webs/Proye
 								<!-- product widget -->
 								<div class="product-widget">
 									<div class="product-img">
-										<img src="./img/product07.png" alt="">
+										<img src="/Proyek-Website-Toko-Buku/Assets/Img/tr7.png" alt="">
 									</div>
 									<div class="product-body">
 										<p class="product-category">Category</p>
@@ -828,7 +749,7 @@ require_once "/home/ardyan/Documents/Devlopment/Kuliah/Project/proyek-webs/Proye
 								<!-- product widget -->
 								<div class="product-widget">
 									<div class="product-img">
-										<img src="./img/product08.png" alt="">
+										<img src="/Proyek-Website-Toko-Buku/Assets/Img/tr8.png" alt="">
 									</div>
 									<div class="product-body">
 										<p class="product-category">Category</p>
@@ -841,7 +762,7 @@ require_once "/home/ardyan/Documents/Devlopment/Kuliah/Project/proyek-webs/Proye
 								<!-- product widget -->
 								<div class="product-widget">
 									<div class="product-img">
-										<img src="./img/product09.png" alt="">
+										<img src="/Proyek-Website-Toko-Buku/Assets/Img/tr9.png" alt="">
 									</div>
 									<div class="product-body">
 										<p class="product-category">Category</p>
@@ -869,7 +790,7 @@ require_once "/home/ardyan/Documents/Devlopment/Kuliah/Project/proyek-webs/Proye
 								<!-- product widget -->
 								<div class="product-widget">
 									<div class="product-img">
-										<img src="./img/product01.png" alt="">
+										<img src="/Proyek-Website-Toko-Buku/Assets/Img/tr1.png" alt="">
 									</div>
 									<div class="product-body">
 										<p class="product-category">Category</p>
@@ -882,7 +803,7 @@ require_once "/home/ardyan/Documents/Devlopment/Kuliah/Project/proyek-webs/Proye
 								<!-- product widget -->
 								<div class="product-widget">
 									<div class="product-img">
-										<img src="./img/product02.png" alt="">
+										<img src="/Proyek-Website-Toko-Buku/Assets/Img/tr1.png" alt="">
 									</div>
 									<div class="product-body">
 										<p class="product-category">Category</p>
@@ -895,7 +816,7 @@ require_once "/home/ardyan/Documents/Devlopment/Kuliah/Project/proyek-webs/Proye
 								<!-- product widget -->
 								<div class="product-widget">
 									<div class="product-img">
-										<img src="./img/product03.png" alt="">
+										<img src="/Proyek-Website-Toko-Buku/Assets/Img/tr3.png" alt="">
 									</div>
 									<div class="product-body">
 										<p class="product-category">Category</p>
@@ -910,7 +831,7 @@ require_once "/home/ardyan/Documents/Devlopment/Kuliah/Project/proyek-webs/Proye
 								<!-- product widget -->
 								<div class="product-widget">
 									<div class="product-img">
-										<img src="./img/product04.png" alt="">
+										<img src="/Proyek-Website-Toko-Buku/Assets/Img/tr4.png" alt="">
 									</div>
 									<div class="product-body">
 										<p class="product-category">Category</p>
@@ -923,7 +844,7 @@ require_once "/home/ardyan/Documents/Devlopment/Kuliah/Project/proyek-webs/Proye
 								<!-- product widget -->
 								<div class="product-widget">
 									<div class="product-img">
-										<img src="./img/product05.png" alt="">
+										<img src="/Proyek-Website-Toko-Buku/Assets/Img/tr5.png" alt="">
 									</div>
 									<div class="product-body">
 										<p class="product-category">Category</p>
@@ -936,10 +857,10 @@ require_once "/home/ardyan/Documents/Devlopment/Kuliah/Project/proyek-webs/Proye
 								<!-- product widget -->
 								<div class="product-widget">
 									<div class="product-img">
-										<img src="./img/product06.png" alt="">
+										<img src="/Proyek-Website-Toko-Buku/Assets/Img/tr6.png" alt="">
 									</div>
 									<div class="product-body">
-										<p class="product-category">Category</p>
+										<p class="product-category">Novely</p>
 										<h3 class="product-name"><a href="#">product name goes here</a></h3>
 										<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
 									</div>
@@ -956,139 +877,55 @@ require_once "/home/ardyan/Documents/Devlopment/Kuliah/Project/proyek-webs/Proye
 		</div>
 		<!-- /SECTION -->
 
-		<!-- NEWSLETTER -->
-		<div id="newsletter" class="section">
-			<!-- container -->
-			<div class="container">
-				<!-- row -->
-				<div class="row">
-					<div class="col-md-12">
-						<div class="newsletter">
-							<p>Sign Up for the <strong>NEWSLETTER</strong></p>
-							<form>
-								<input class="input" type="email" placeholder="Enter Your Email">
-								<button class="newsletter-btn"><i class="fa fa-envelope"></i> Subscribe</button>
-							</form>
-							<ul class="newsletter-follow">
-								<li>
-									<a href="#"><i class="fa fa-facebook"></i></a>
-								</li>
-								<li>
-									<a href="#"><i class="fa fa-twitter"></i></a>
-								</li>
-								<li>
-									<a href="#"><i class="fa fa-instagram"></i></a>
-								</li>
-								<li>
-									<a href="#"><i class="fa fa-pinterest"></i></a>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<!-- /row -->
-			</div>
-			<!-- /container -->
-		</div>
-		<!-- /NEWSLETTER -->
-
 		<!-- FOOTER -->
-		<footer id="footer">
-			<!-- top footer -->
-			<div class="section">
-				<!-- container -->
-				<div class="container">
-					<!-- row -->
-					<div class="row">
-						<div class="col-md-3 col-xs-6">
-							<div class="footer">
-								<h3 class="footer-title">About Us</h3>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.</p>
-								<ul class="footer-links">
-									<li><a href="#"><i class="fa fa-map-marker"></i>1734 Stonecoal Road</a></li>
-									<li><a href="#"><i class="fa fa-phone"></i>+021-95-51-84</a></li>
-									<li><a href="#"><i class="fa fa-envelope-o"></i>email@email.com</a></li>
-								</ul>
-							</div>
-						</div>
-
-						<div class="col-md-3 col-xs-6">
-							<div class="footer">
-								<h3 class="footer-title">Categories</h3>
-								<ul class="footer-links">
-									<li><a href="#">Hot deals</a></li>
-									<li><a href="#">Laptops</a></li>
-									<li><a href="#">Smartphones</a></li>
-									<li><a href="#">Cameras</a></li>
-									<li><a href="#">Accessories</a></li>
-								</ul>
-							</div>
-						</div>
-
-						<div class="clearfix visible-xs"></div>
-
-						<div class="col-md-3 col-xs-6">
-							<div class="footer">
-								<h3 class="footer-title">Information</h3>
-								<ul class="footer-links">
-									<li><a href="#">About Us</a></li>
-									<li><a href="#">Contact Us</a></li>
-									<li><a href="#">Privacy Policy</a></li>
-									<li><a href="#">Orders and Returns</a></li>
-									<li><a href="#">Terms & Conditions</a></li>
-								</ul>
-							</div>
-						</div>
-
-						<div class="col-md-3 col-xs-6">
-							<div class="footer">
-								<h3 class="footer-title">Service</h3>
-								<ul class="footer-links">
-									<li><a href="#">My Account</a></li>
-									<li><a href="#">View Cart</a></li>
-									<li><a href="#">Wishlist</a></li>
-									<li><a href="#">Track My Order</a></li>
-									<li><a href="#">Help</a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<!-- /row -->
-				</div>
-				<!-- /container -->
-			</div>
-			<!-- /top footer -->
-
-			<!-- bottom footer -->
-			<div id="bottom-footer" class="section">
-				<div class="container">
-					<!-- row -->
-					<div class="row">
-						<div class="col-md-12 text-center">
-							<ul class="footer-payments">
-								<li><a href="#"><i class="fa fa-cc-visa"></i></a></li>
-								<li><a href="#"><i class="fa fa-credit-card"></i></a></li>
-								<li><a href="#"><i class="fa fa-cc-paypal"></i></a></li>
-								<li><a href="#"><i class="fa fa-cc-mastercard"></i></a></li>
-								<li><a href="#"><i class="fa fa-cc-discover"></i></a></li>
-								<li><a href="#"><i class="fa fa-cc-amex"></i></a></li>
-							</ul>
-							<span class="copyright">
-								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-								Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-							</span>
-						</div>
-					</div>
-						<!-- /row -->
-				</div>
-				<!-- /container -->
-			</div>
-			<!-- /bottom footer -->
-		</footer>
-		<!-- /FOOTER -->
+		<div class="footer-section-bg">
+  <div class="container">
+    <div class="footer-row">
+      <div class="footer-col">
+        <div class="footer">
+          <h3 class="footer-title">Produk Kami</h3>
+          <ul class="footer-links">
+            <li><a href="#">Toko Sigma. Affiliate</a></li>
+            <li><a href="#">Mitra Toko Sigma.</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-col">
+        <div class="footer">
+          <h3 class="footer-title">Informasi Berbelanja</h3>
+          <ul class="footer-links">
+            <li><a href="#">Berbelanja</a></li>
+            <li><a href="#">Pembayaran</a></li>
+            <li><a href="#">Pengiriman</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-col">
+        <div class="footer">
+          <h3 class="footer-title">Tentang Kami</h3>
+          <ul class="footer-links">
+            <li><a href="#">Tentang Kami</a></li>
+            <li><a href="#">Toko Kami</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-col">
+        <div class="footer">
+          <h3 class="footer-title">Lainnya</h3>
+          <ul class="footer-links">
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Kebijakan Privasi</a></li>
+            <li><a href="#">Hubungi Kami</a></li>
+            <li><a href="#">Kerja Sama</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /FOOTER -->
 
 <?php 
 
-require_once "/home/ardyan/Documents/Devlopment/Kuliah/Project/proyek-webs/Proyek-Website-Toko-Buku/includes/footer.php";
+require_once ROOT_PATH . "/includes/footer.php";
 ?>

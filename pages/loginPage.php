@@ -44,51 +44,30 @@ require_once "../includes/header.php";
 </head>
 <body>
   <div class="LoginPage">
-  <body>
-  <div class="LoginPage">
-    <form action="" id="loginForm" method="post">
-      <div class="masuk">Masuk</div> <div class="input-email">
-
-        <div class="input">
-          <label for="email"></label>
-          <input type="email" id="email" name="email" placeholder="Email" class="input-field">
+    <div class="login-card">
+      <h2 class="login-title">Masuk</h2>
+      <form>
+        <div class="form-group">
+          <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+          <div class="error-message">Email tidak ditemukan</div>
         </div>
-
-        <?php if ($hasil1 === "Email tidak ada"):?>
-          <div class="error">Email tidak ditemukan</div>
-        <?php endif;?>
-
-      </div>
-
-      <div class="input-password">
-        <div class="input">
-          <label for="passowrd"></label>
-          <input type="password" id="password" name="password" placeholder="Password" class="input-field">
+        <div class="form-group">
+          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+          <div class="error-message">Password salah</div>
         </div>
-
-        <?php if ($hasil2 === "Password Salah"):?>
-          <div class="error">Passoword salah</div>
-        <?php endif;?>
-
-      </div>
-
-      <div class="ingat-saya-check-box">
-        <div class="checkbox-and-label">
-          <input type="checkbox" id="ingat-saya" name="ingat-saya" class="checkbox"/>
-          <label for="ingat-saya" class="label">Ingat saya</label>
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+          <label class="form-check-label" for="exampleCheck1">Ingat saya</label>
         </div>
-      </div>
-
-      <div class="login-button">
-        <button type="submit" id="loginBtn" name="submit" class="login-form-button">Log In</button>
-      </div>
-
-    </form>
-    <p class="belum-punya-akun-daftar">
-      Belum punya akun? <a href="/proyek-webs/Proyek-Website-Toko-Buku/pages/signUpPage.php"class="daftar-link">Daftar</a>
-    </p>
-    
+        <button type="submit" class="btn-login">LOGIN</button>
+        <div class="register-link">
+          Belum punya akun? <a href="#">Daftar</a>
+        </div>
+      </form>
+    </div>
   </div>
+</body>
+
 <?php 
   require_once "../includes/footer.php";
 ?>

@@ -17,7 +17,7 @@ require_once "../includes/header.php";
 						<li><a href="#"><i class="fa fa-map-marker"></i> 1734 Stonecoal Road</a></li>
 					</ul>
 					<ul class="header-links pull-right">
-						<li><a href="#"><i class="fa fa-dollar"></i> USD</a></li>
+						<li><a href="#"><i class="fa fa-rupiah"></i></a></li>
 						<li><a href="#"><i class="fa fa-user-o"></i> My Account</a></li>
 					</ul>
 				</div>
@@ -34,7 +34,7 @@ require_once "../includes/header.php";
 						<div class="col-md-3">
 							<div class="header-logo">
 								<a href="#" class="logo">
-									<img src="./img/logo.png" alt="">
+									<img src="Proyek-Website-Toko-Buku/Assets/Img/logo.png" alt="">
 								</a>
 							</div>
 						</div>
@@ -80,7 +80,7 @@ require_once "../includes/header.php";
 										<div class="cart-list">
 											<div class="product-widget">
 												<div class="product-img">
-													<img src="./img/product01.png" alt="">
+													<img src="Proyek-Website-Toko-Buku/Assets/Img/product01.png" alt="">
 												</div>
 												<div class="product-body">
 													<h3 class="product-name"><a href="#">product name goes here</a></h3>
@@ -91,7 +91,7 @@ require_once "../includes/header.php";
 
 											<div class="product-widget">
 												<div class="product-img">
-													<img src="./img/product02.png" alt="">
+													<img src="Proyek-Website-Toko-Buku/Assets/Img/product02.png" alt="">
 												</div>
 												<div class="product-body">
 													<h3 class="product-name"><a href="#">product name goes here</a></h3>
@@ -328,7 +328,7 @@ require_once "../includes/header.php";
 							<h3 class="aside-title">Top selling</h3>
 							<div class="product-widget">
 								<div class="product-img">
-									<img src="./img/product01.png" alt="">
+									<img src="Proyek-Website-Toko-Buku/Assets/Img/product01.png" alt="">
 								</div>
 								<div class="product-body">
 									<p class="product-category">Category</p>
@@ -339,7 +339,7 @@ require_once "../includes/header.php";
 
 							<div class="product-widget">
 								<div class="product-img">
-									<img src="./img/product02.png" alt="">
+									<img src="Proyek-Website-Toko-Buku/Assets/Img/product02.png" alt="">
 								</div>
 								<div class="product-body">
 									<p class="product-category">Category</p>
@@ -350,7 +350,7 @@ require_once "../includes/header.php";
 
 							<div class="product-widget">
 								<div class="product-img">
-									<img src="./img/product03.png" alt="">
+									<img src="Proyek-Website-Toko-Buku/Assets/Img/product03.png" alt="">
 								</div>
 								<div class="product-body">
 									<p class="product-category">Category</p>
@@ -397,7 +397,7 @@ require_once "../includes/header.php";
 							<div class="col-md-4 col-xs-6">
 								<div class="product">
 									<div class="product-img">
-										<img src="./img/product01.png" alt="">
+										<img src="Proyek-Website-Toko-Buku/Assets/Img/product01.png" alt="">
 										<div class="product-label">
 											<span class="sale">-30%</span>
 											<span class="new">NEW</span>
@@ -431,7 +431,7 @@ require_once "../includes/header.php";
 							<div class="col-md-4 col-xs-6">
 								<div class="product">
 									<div class="product-img">
-										<img src="./img/product02.png" alt="">
+										<img src="Proyek-Website-Toko-Buku/Assets/Img/product02.png" alt="">
 										<div class="product-label">
 											<span class="new">NEW</span>
 										</div>
@@ -466,7 +466,7 @@ require_once "../includes/header.php";
 							<div class="col-md-4 col-xs-6">
 								<div class="product">
 									<div class="product-img">
-										<img src="./img/product03.png" alt="">
+										<img src="Proyek-Website-Toko-Buku/Assets/Img/product03.png" alt="">
 									</div>
 									<div class="product-body">
 										<p class="product-category">Category</p>
@@ -493,7 +493,7 @@ require_once "../includes/header.php";
 							<div class="col-md-4 col-xs-6">
 								<div class="product">
 									<div class="product-img">
-										<img src="./img/product04.png" alt="">
+										<img src="Proyek-Website-Toko-Buku/Assets/Img/product04.png" alt="">
 									</div>
 									<div class="product-body">
 										<p class="product-category">Category</p>
@@ -520,7 +520,7 @@ require_once "../includes/header.php";
 							<div class="col-md-4 col-xs-6">
 								<div class="product">
 									<div class="product-img">
-										<img src="./img/product05.png" alt="">
+										<img src="Proyek-Website-Toko-Buku/Assets/Img/product05.png" alt="">
 									</div>
 									<div class="product-body">
 										<p class="product-category">Category</p>
@@ -545,7 +545,7 @@ require_once "../includes/header.php";
 							<div class="col-md-4 col-xs-6">
 								<div class="product">
 									<div class="product-img">
-										<img src="./img/product06.png" alt="">
+										<img src="Proyek-Website-Toko-Buku/Assets/Img/product06.png" alt="">
 									</div>
 									<div class="product-body">
 										<p class="product-category">Category</p>
@@ -577,7 +577,7 @@ require_once "../includes/header.php";
 							<div class="col-md-4 col-xs-6">
 								<div class="product">
 									<div class="product-img">
-										<img src="./img/product07.png" alt="">
+										<img src="Proyek-Website-Toko-Buku/Assets/Img/product07.png" alt="">
 									</div>
 									<div class="product-body">
 										<p class="product-category">Category</p>
@@ -607,7 +607,7 @@ require_once "../includes/header.php";
 							<div class="col-md-4 col-xs-6">
 								<div class="product">
 									<div class="product-img">
-										<img src="./img/product08.png" alt="">
+										<img src="Proyek-Website-Toko-Buku/Assets/Img/product08.png" alt="">
 									</div>
 									<div class="product-body">
 										<p class="product-category">Category</p>
@@ -634,7 +634,7 @@ require_once "../includes/header.php";
 							<div class="col-md-4 col-xs-6">
 								<div class="product">
 									<div class="product-img">
-										<img src="./img/product09.png" alt="">
+										<img src="Proyek-Website-Toko-Buku/Assets/Img/product09.png" alt="">
 									</div>
 									<div class="product-body">
 										<p class="product-category">Category</p>
