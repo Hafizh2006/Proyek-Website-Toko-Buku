@@ -42,41 +42,33 @@ if (isset($_POST['loginAdmin'])){
 
 require_once "../includes/header.php";
 ?>
-<title>Login Page</title>
+<title>Login admin</title>
 </head>
 <body>
-    <div>
-        <h1>Login</h1>
+  <div class="LoginPage">
+    <div class="login-card">
+      <h2 class="login-title">Masuk Admin</h2>
+      <form>
+        <div class="form-group">    
+          <input type="username" class="form-control" id="inputusername" placeholder="username">
+          <div class="error-message">username tidak ditemukan</div>
+        </div>
+        <div class="form-group">
+          <input type="password" class="form-control" id="inputpassword" placeholder="password">
+          <div class="error-message">Password salah</div>
+        </div>
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="check">
+          <label class="form-check-label" for="check">Ingat saya</label>
+        </div>
+        <button type="submit" class="btn-login">LOGIN</button>
+        <div class="register-link">
+          Belum punya akun? <a href="#">Daftar</a>
+        </div>
+      </form>
     </div>
-    <div>
-        <form action="" method="POST">
-            <ul>
-                <li>
-                    <div>
-                        <label for="nama">Name :</label>
-                        <input type="text" id="nama" name="nama" required>
-                    </div>
-                </li>
-                <li>
-                    <div>
-                        <label for="email">Email :</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                </li>
-                <li>
-                    <div>
-                        <label for="">Password :</label>
-                        <input type="password" id="password" name="password" required>
-                    </div>
-                </li>
-                <li>
-                    <div>
-                        <button type="submit" id="loginAdmin" name="loginAdmin">Login</button>
-                    </div>
-                </li>
-            </ul>
-        </form>
-    </div>
+  </div>
+</body>
 <?php 
 
 require_once "../includes/footer.php";
