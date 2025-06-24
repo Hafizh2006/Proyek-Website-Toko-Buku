@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Bookly - Bookstore eCommerce Website Template</title>
+    <title>Toko Sigma.</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +10,7 @@
     <meta name="author" content="">
     <meta name="keywords" content="">
     <meta name="description" content="">
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script> -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/Proyek-Website-Toko-Buku/Assets/frontend/style.css">
@@ -234,15 +235,15 @@
                   <a class="nav-link me-4 active" href="index.html">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link me-4" href="index.html">About</a>
+                  <a class="nav-link me-4" href="/Proyek-Website-Toko-Buku/pages/catalog.php">Shop</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link me-4" href="index.html">Shop</a>
+                  <a class="nav-link me-4" href="/Proyek-Website-Toko-Buku/pages/about.php">About</a>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                   <a class="nav-link me-4" href="index.html">Blogs</a>
-                </li>
-                <li class="nav-item dropdown">
+                </li> -->
+                <!-- <li class="nav-item dropdown">
                   <a class="nav-link me-4 dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
                     aria-expanded="false">Pages</a>
                   <ul class="dropdown-menu animate slide border">
@@ -271,15 +272,16 @@
                       <a href="index.html" class="dropdown-item fw-light">Contact</a>
                     </li>
                   </ul>
-                </li>
-                <li class="nav-item">
+                </li> -->
+                <!-- <li class="nav-item">
                   <a class="nav-link me-4" href="index.html">Contact</a>
-                </li>
+                </li> -->
               </ul>
               <div class="user-items d-flex">
                 <ul class="d-flex justify-content-end list-unstyled mb-0">
                   <li class="search-item pe-3">
                     <a href="#" class="search-button">
+                      
                       <svg class="search">
                         <use xlink:href="#search"></use>
                       </svg>
@@ -292,72 +294,77 @@
                       </svg>
                     </a>
                     <!-- Modal -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                      aria-hidden="true">
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                       <div class="modal-dialog">
                         <div class="modal-content">
-                          <div class="modal-header border-bottom-0">
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      <div class="modal-header border-bottom-0">
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="tabs-listing">
+                        <nav>
+                          <div class="nav nav-tabs d-flex justify-content-center" id="nav-tab" role="tablist">
+                            <button class="nav-link text-capitalize active" id="nav-sign-in-tab" data-bs-toggle="tab"
+                              data-bs-target="#nav-sign-in" type="button" role="tab" aria-controls="nav-sign-in" aria-selected="true">Sign In</button>
+                            <button class="nav-link text-capitalize" id="nav-register-tab" data-bs-toggle="tab"
+                              data-bs-target="#nav-register" type="button" role="tab" aria-controls="nav-register" aria-selected="false">Register</button>
                           </div>
-                          <div class="modal-body">
-                            <div class="tabs-listing">
-                              <nav>
-                                <div class="nav nav-tabs d-flex justify-content-center" id="nav-tab" role="tablist">
-                                  <button class="nav-link text-capitalize active" id="nav-sign-in-tab" data-bs-toggle="tab"
-                                    data-bs-target="#nav-sign-in" type="button" role="tab" aria-controls="nav-sign-in"
-                                    aria-selected="true">Sign In</button>
-                                  <button class="nav-link text-capitalize" id="nav-register-tab" data-bs-toggle="tab"
-                                    data-bs-target="#nav-register" type="button" role="tab" aria-controls="nav-register"
-                                    aria-selected="false">Register</button>
-                                </div>
-                              </nav>
-                              <div class="tab-content p-4" id="nav-tabContent">
-                                <div class="tab-pane fade active show" id="nav-sign-in" role="tabpanel"
-                                  aria-labelledby="nav-sign-in-tab">
-                                  <div class="form-group py-3">
-                                    <label class="mb-2" for="sign-in">Username or email address *</label>
-                                    <input type="text" minlength="2" name="username" placeholder="Your Username"
-                                      class="form-control w-100 rounded-3 p-3" required>
-                                  </div>
-                                  <div class="form-group pb-3">
-                                    <label class="mb-2" for="sign-in">Password *</label>
-                                    <input type="password" minlength="2" name="password" placeholder="Your Password"
-                                      class="form-control w-100 rounded-3 p-3" required>
-                                  </div>
-                                  <label class="py-3">
-                                    <input type="checkbox" required="" class="d-inline">
-                                    <span class="label-body">Remember me</span>
-                                    <span class="label-body"><a href="#" class="fw-bold">Forgot Password</a></span>
-                                  </label>
-                                  <button type="submit" name="submit" class="btn btn-dark w-100 my-3">Login</button>
-                                </div>
-                                <div class="tab-pane fade" id="nav-register" role="tabpanel"
-                                  aria-labelledby="nav-register-tab">
-                                  <div class="form-group py-3">
-                                    <label class="mb-2" for="register">Your email address *</label>
-                                    <input type="text" minlength="2" name="username" placeholder="Your Email Address"
-                                      class="form-control w-100 rounded-3 p-3" required>
-                                  </div>
-                                  <div class="form-group pb-3">
-                                    <label class="mb-2" for="sign-in">Password *</label>
-                                    <input type="password" minlength="2" name="password" placeholder="Your Password"
-                                      class="form-control w-100 rounded-3 p-3" required>
-                                  </div>
-                                  <label class="py-3">
-                                    <input type="checkbox" required="" class="d-inline">
-                                    <span class="label-body">I agree to the <a href="#" class="fw-bold">Privacy
-                                        Policy</a></span>
-                                  </label>
-                                  <button type="submit" name="submit" class="btn btn-dark w-100 my-3">Register</button>
-                                </div>
-                              </div>
+                        </nav>
+                        <div class="tab-content p-4" id="nav-tabContent">
+                          <!-- Tab Sign In -->
+                          <div class="tab-pane fade active show" id="nav-sign-in" role="tabpanel" aria-labelledby="nav-sign-in-tab">
+                            <div class="form-group py-3">
+                              <label class="mb-2" for="sign-in">Username or email address *</label>
+                              <input type="text" minlength="2" name="username" placeholder="Your Username"
+                                class="form-control w-100 rounded-3 p-3" required>
+                            </div>
+                            <div class="form-group pb-3">
+                              <label class="mb-2" for="sign-in">Password *</label>
+                              <input type="password" minlength="2" name="password" placeholder="Your Password"
+                                class="form-control w-100 rounded-3 p-3" required>
+                            </div>
+                            <label class="py-3 d-flex justify-content-between align-items-center">
+                              <span><input type="checkbox" required class="d-inline"> Ingat saya</span>
+                              <span class="label-body"><a href="#" class="fw-bold">Lupa password</a></span>
+                            </label>
+                            <button type="submit" name="submit" class="btn btn-dark w-100 my-3">Login</button>
+                          </div>
+
+                          <!-- Tab Register -->
+                          <div class="tab-pane fade" id="nav-register" role="tabpanel" aria-labelledby="nav-register-tab">
+                            <!-- Input username baru -->
+                            <div class="form-group py-3">
+                              <label class="mb-2" for="register-username">Your username *</label>
+                              <input type="text" minlength="2" name="register_username" placeholder="Your Username"
+                                class="form-control w-100 rounded-3 p-3" required>
+                            </div>
+                            <!-- Input email -->
+                            <div class="form-group py-3">
+                              <label class="mb-2" for="register-email">Your email address *</label>
+                              <input type="email" minlength="2" name="register_email" placeholder="Your Email Address"
+                                class="form-control w-100 rounded-3 p-3" required>
+                            </div>
+                            <!-- Input password -->
+                            <div class="form-group pb-3">
+                              <label class="mb-2" for="register-password">Password *</label>
+                              <input type="password" minlength="2" name="register_password" placeholder="Your Password"
+                                class="form-control w-100 rounded-3 p-3" required>
+                            </div>
+                            <label class="py-3">
+                              <!-- <input type="checkbox" required class="d-inline"> -->
+                              <!-- <span class="label-body">I agree to the <a href="#" class="fw-bold">Privacy Policy</a></span> -->
+                            </label>
+                            <button type="submit" name="submit" class="btn btn-dark w-100 my-3">Register</button>
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
+                  </div>
+                </div>
+
                   </li>
-                  <li class="wishlist-dropdown dropdown pe-3">
+                  <!-- <li class="wishlist-dropdown dropdown pe-3">
                     <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false">
                       <svg class="wishlist">
                         <use xlink:href="#heart"></use>
@@ -399,15 +406,15 @@
                         <a href="index.html" class="w-100 btn btn-primary" type="submit">View cart</a>
                       </div>
                     </div>
-                  </li>
+                  </li> -->
                   <li class="cart-dropdown dropdown">
-                    <a href="index.html" class="dropdown-toggle" data-bs-toggle="dropdown" role="button"
+                    <a href="pages/cart.php" role="button"
                       aria-expanded="false">
                       <svg class="cart">
                         <use xlink:href="#cart"></use>
-                      </svg><span class="fs-6 fw-light">(02)</span>
+                      </svg><span class="fs-6 fw-light"></span>
                     </a>
-                    <div class="dropdown-menu animate slide dropdown-menu-start dropdown-menu-lg-end p-3">
+                    <!-- <div class="dropdown-menu animate slide dropdown-menu-start dropdown-menu-lg-end p-3">
                       <h4 class="d-flex justify-content-between align-items-center mb-3">
                         <span class="text-primary">Your cart</span>
                         <span class="badge bg-primary rounded-pill">2</span>
@@ -440,7 +447,7 @@
                         <a href="pages/cart.php" class="w-100 btn btn-dark mb-1" type="submit">View Cart</a>
                         <a href="index.html" class="w-100 btn btn-primary" type="submit">Go to checkout</a>
                       </div>
-                    </div>
+                    </div> -->
                   </li>
                 </ul>
               </div>
