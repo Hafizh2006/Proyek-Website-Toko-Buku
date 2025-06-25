@@ -27,7 +27,7 @@ Website ini dikembangkan untuk memenuhi tugas proyek akhir mata kuliah Pemrogram
 ## Cara Menjalankan Proyek
 1. buat file database.db di dalam folder database
 2. Masuk ke terminal, kemudian:
-	cd database
+	cd database/
 	sqlite3 database.db
 	.read db.sql
 	
