@@ -11,9 +11,10 @@ class buku_model
         $this->db = new database;
     }
     
-    public function getAllBuku() {
-        $this->db->Query("SELECT * FROM ". $this->table);
-        return $this->db->resultSet();
+    public function ambilSemuaBukuDarIdkategori($id_kategori) {
+        $this->db->Query("SELECT * FROM buku WHERE id_kategori = :id_kategori");
+        $this->db->Bind(':id_kategori', $id_kategori);
+        return $this->db->resultSet(); 
     }
 
     public function getAllBukubyId($id) {
@@ -48,8 +49,6 @@ class buku_model
         $this->db->Query($query);
         $this->db->Bind("id", $id);
         $this->db->execute();
-
-
         return $this->db->rowCount();
     }
 

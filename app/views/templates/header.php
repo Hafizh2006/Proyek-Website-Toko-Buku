@@ -211,8 +211,8 @@
 
       <nav id="header-nav" class="navbar navbar-expand-lg py-3">
         <div class="container">
-          <a class="navbar-brand" href="/Proyek-Website-Toko-Buku/">
-            <img src="<?php echo BASE_URL?>/Img/logo-d.png" class="logo">
+          <a class="navbar-brand" href="<?php echo BASE_URL?>">
+            <img src="<?php echo BASE_URL?>/frontend/images/logo-d.png" class="logo">
           </a>
           <button class="navbar-toggler d-flex d-lg-none order-3 p-2" type="button" data-bs-toggle="offcanvas"
             data-bs-target="#bdNavbar" aria-controls="bdNavbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -222,8 +222,8 @@
           </button>
           <div class="offcanvas offcanvas-end" tabindex="-1" id="bdNavbar" aria-labelledby="bdNavbarOffcanvasLabel">
             <div class="offcanvas-header px-4 pb-0">
-              <a class="navbar-brand" href="index.html">
-                <img src="/Proyek-Website-Toko-Buku/Assets/frontend/images/main-logo.png" class="logo">
+              <a class="navbar-brand" href="<?php echo BASE_URL?>">
+                <img src="<?php echo BASE_URL?>/frontend/images/main-logo.png" class="logo">
               </a>
               <button type="button" class="btn-close btn-close-black" data-bs-dismiss="offcanvas" aria-label="Close"
                 data-bs-target="#bdNavbar"></button>
@@ -232,13 +232,13 @@
               <ul id="navbar"
                 class="navbar-nav text-uppercase justify-content-start justify-content-lg-center align-items-start align-items-lg-center flex-grow-1">
                 <li class="nav-item">
-                  <a class="nav-link me-4 active" href="index.html">Home</a>
+                  <a class="nav-link me-4 active" href="<?php echo BASE_URL?>">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link me-4" href="<?php echo BASE_URL?>/views/home/catalog.php">Shop</a>
+                  <a class="nav-link me-4" href="<?php echo BASE_URL?>/views/home/catalog">Shop</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link me-4" href="<?php echo BASE_URL?>/views/home/about.php">About</a>
+                  <a class="nav-link me-4" href="<?php echo BASE_URL?>/views/home/about">About</a>
                 </li>
                 <!-- <li class="nav-item">
                   <a class="nav-link me-4" href="index.html">Blogs</a>
@@ -288,11 +288,24 @@
                     </a>
                   </li>
                   <li class="pe-3">
-                    <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                      <svg class="user">
-                        <use xlink:href="#user"></use>
-                      </svg>
-                    </a>
+                    <!-- Tombol modal jika belum login-->
+                    <?php if(!isset($_SESSION['LoginUser'])):?>
+                      <a href="<?php echo BASE_URL?>" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <svg class="user">
+                          <use xlink:href="#user"></use>
+                        </svg>
+                      </a>
+                    <?php endif;?>
+                    
+                    <!-- Tombol modal jika sudah login-->
+                    <?php if(isset($_SESSION['LoginUser'])):?>
+                      <a href="<?php echo BASE_URL?>/home/profile">
+                        <svg class="user">
+                          <use xlink:href="#user"></use>
+                        </svg>
+                      </a>
+                    <?php endif;?>
+
                     <!-- Modal -->
                     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                       <div class="modal-dialog">
@@ -311,50 +324,63 @@
                           </div>
                         </nav>
                         <div class="tab-content p-4" id="nav-tabContent">
-                          <!-- Tab Sign In -->
-                          <div class="tab-pane fade active show" id="nav-sign-in" role="tabpanel" aria-labelledby="nav-sign-in-tab">
-                            <div class="form-group py-3">
-                              <label class="mb-2" for="sign-in">Username or email address *</label>
-                              <input type="text" minlength="2" name="username" placeholder="Your Username"
-                                class="form-control w-100 rounded-3 p-3" required>
-                            </div>
-                            <div class="form-group pb-3">
-                              <label class="mb-2" for="sign-in">Password *</label>
-                              <input type="password" minlength="2" name="password" placeholder="Your Password"
-                                class="form-control w-100 rounded-3 p-3" required>
-                            </div>
-                            <label class="py-3 d-flex justify-content-between align-items-center">
-                              <span><input type="checkbox" required class="d-inline"> Ingat saya</span>
-                              <span class="label-body"><a href="#" class="fw-bold">Lupa password</a></span>
-                            </label>
-                            <button type="submit" name="submit" class="btn btn-dark w-100 my-3">Login</button>
-                          </div>
+                          
+                            <!-- Tab Sign In -->
+                              <div class="tab-pane fade active show" id="nav-sign-in" role="tabpanel" aria-labelledby="nav-sign-in-tab">
+                                <!-- Input Email -->
+                                <form action="<?php echo BASE_URL?>/home/login" method="POST">
+                                  <div class="form-group py-3">
+                                    <label class="mb-2" for="sign-in">Email address *</label>
+                                    <input type="text" minlength="2" name="email_user" placeholder="email"
+                                      class="form-control w-100 rounded-3 p-3" required>
+                                  </div>
+                                  <!-- Input password -->
+                                  <div class="form-group pb-3">
+                                    <label class="mb-2" for="sign-in">Password *</label>
+                                    <input type="password" minlength="2" name="password_user" placeholder="Your Password"
+                                      class="form-control w-100 rounded-3 p-3" required>
+                                  </div>
 
+                                  <!-- Cookies -->
+                                  <label class="py-3 d-flex justify-content-between align-items-center">
+                                    <span><input type="checkbox" name="cookies" class="d-inline"> Ingat saya</span>
+                                  </label>
+
+                                  <!-- Submit button -->
+                                  <button type="submit" name="submit" class="btn btn-dark w-100 my-3">Login</button>
+                                 </form>
+                              </div>
+                         
                           <!-- Tab Register -->
                           <div class="tab-pane fade" id="nav-register" role="tabpanel" aria-labelledby="nav-register-tab">
-                            <!-- Input username baru -->
-                            <div class="form-group py-3">
-                              <label class="mb-2" for="register-username">Your username *</label>
-                              <input type="text" minlength="2" name="register_username" placeholder="Your Username"
-                                class="form-control w-100 rounded-3 p-3" required>
-                            </div>
-                            <!-- Input email -->
-                            <div class="form-group py-3">
-                              <label class="mb-2" for="register-email">Your email address *</label>
-                              <input type="email" minlength="2" name="register_email" placeholder="Your Email Address"
-                                class="form-control w-100 rounded-3 p-3" required>
-                            </div>
-                            <!-- Input password -->
-                            <div class="form-group pb-3">
-                              <label class="mb-2" for="register-password">Password *</label>
-                              <input type="password" minlength="2" name="register_password" placeholder="Your Password"
-                                class="form-control w-100 rounded-3 p-3" required>
-                            </div>
-                            <label class="py-3">
-                              <!-- <input type="checkbox" required class="d-inline"> -->
-                              <!-- <span class="label-body">I agree to the <a href="#" class="fw-bold">Privacy Policy</a></span> -->
-                            </label>
-                            <button type="submit" name="submit" class="btn btn-dark w-100 my-3">Register</button>
+                            <form action="<?php echo BASE_URL?>/home/signup" method="POST">
+                              <!-- Input username baru -->
+                              <div class="form-group py-3">
+                                <label class="mb-2" for="register-username">Your username *</label>
+                                <input type="text" minlength="2" name="nama_user" placeholder="Your Username"
+                                  class="form-control w-100 rounded-3 p-3" required>
+                              </div>
+
+                              <!-- Input email -->
+                              <div class="form-group py-3">
+                                <label class="mb-2" for="register-email">Your email address *</label>
+                                <input type="email" minlength="2" name="email_user" placeholder="Your Email Address"
+                                  class="form-control w-100 rounded-3 p-3" required>
+                              </div>
+
+                              <!-- Input password -->
+                              <div class="form-group pb-3">
+                                <label class="mb-2" for="register-password">Password *</label>
+                                <input type="password" minlength="2" name="password_user" placeholder="Your Password"
+                                  class="form-control w-100 rounded-3 p-3" required>
+                              </div>
+
+                              <label class="py-3">
+                                <!-- <input type="checkbox" required class="d-inline"> -->
+                                <!-- <span class="label-body">I agree to the <a href="#" class="fw-bold">Privacy Policy</a></span> -->
+                              </label>
+                              <button type="submit" name="submit" class="btn btn-dark w-100 my-3">Register</button>
+                            </form>
                             </div>
                           </div>
                         </div>

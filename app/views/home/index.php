@@ -1,5 +1,19 @@
+<?php 
+//var_dump($data); die;
+$buku = $data['pendidikan'];
+$novel = $data['novel'];
+$komik = $data['komik'];
+
+$countpendidikan = 1;
+$countkomik = 1;
+$countnovel = 1;
+$countromansa = 1;
+
+$bukubanner = $buku
+?>
+
 <section id="billboard" class="position-relative d-flex align-items-center py-5 bg-light-gray"
-style="background-image: url(/Proyek-Website-Toko-Buku/Assets/frontend/images/banner-image-bg.jpg); background-size: cover; background-repeat: no-repeat; background-position: center; height: 800px;">
+style="background-image: url(<?php echo BASE_URL?>/frontend/images/banner-image-bg.jpg); background-size: cover; background-repeat: no-repeat; background-position: center; height: 800px;">
 <div class="position-absolute end-0 pe-0 pe-xxl-5 me-0 me-xxl-5 swiper-next main-slider-button-next">
 	<svg class="chevron-forward-circle d-flex justify-content-center align-items-center p-2" width="80" height="80">
 	<use xlink:href="#alt-arrow-right-outline"></use>
@@ -17,14 +31,14 @@ style="background-image: url(/Proyek-Website-Toko-Buku/Assets/frontend/images/ba
 		<div class="row d-flex flex-column-reverse flex-md-row align-items-center">
 			<div class="col-md-5 offset-md-1 mt-5 mt-md-0 text-center text-md-start">
 			<div class="banner-content">
-				<h2>The Fine Print Book Collection</h2>
-				<p>Best Offer Save 30%. Grab it now!</p>
-				<a href="index.html" class="btn mt-3">Shop Collection</a>
+				<h2>Toko buku Sigma</h2>
+				<p>Belilah dan agar menjadi orang sigma!</p>
+				<a href="<?php echo BASE_URL?>" class="btn mt-3">Shop Collection</a>
 			</div>
 			</div>
 			<div class="col-md-6 text-center">
 			<div class="image-holder">
-				<img src="http:/localhost/Proyek-Website-Toko-Buku/frontend/Img/tr6.png" class="img-fluid" alt="banner">
+				<img src="<?php echo BASE_URL?>/backend/image/buku/<?php $bukubanner['foto'] ?>" class="img-fluid" alt="banner">
 			</div>
 			</div>
 		</div>
@@ -42,7 +56,7 @@ style="background-image: url(/Proyek-Website-Toko-Buku/Assets/frontend/images/ba
 			</div>
 			<div class="col-md-6 text-center">
 			<div class="image-holder">
-				<img src="http:/localhost/Proyek-Website-Toko-Buku/frontend/images/banner-image1.png" class="img-fluid" alt="banner">
+				<img src="<?php echo BASE_URL?>/frontend/images/banner-image1.png" class="img-fluid" alt="banner">
 			</div>
 			</div>
 		</div>
@@ -60,7 +74,7 @@ style="background-image: url(/Proyek-Website-Toko-Buku/Assets/frontend/images/ba
 			</div>
 			<div class="col-md-6 text-center">
 			<div class="image-holder">
-				<img src="http:/localhost/Proyek-Website-Toko-Buku/frontend/images/banner-image.png" class="img-fluid" alt="banner">
+				<img src="<?php echo BASE_URL?>/frontend/images/" class="img-fluid" alt="banner">
 			</div>
 			</div>
 		</div>
@@ -464,135 +478,95 @@ style="background-image: url(images/banner-image-bg-1.jpg); background-size: cov
 <section id="items-listing" class="padding-large">
 <div class="container">
 	<div class="row">
-	<div class="col-md-6 mb-4 mb-lg-0 col-lg-3">
-		<div class="featured border rounded-3 p-4">
-		<div class="section-title overflow-hidden mb-5 mt-2">
-			<h3 class="d-flex flex-column mb-0">Featured</h3>
-		</div>
-		<div class="items-lists">
-			<div class="item d-flex">
-			<img src="/Proyek-Website-Toko-Buku/Assets/frontend/images/product-item2.png" class="img-fluid shadow-sm" alt="product item">
-			<div class="item-content ms-3">
-				<h6 class="mb-0 fw-bold"><a href="index.html">Echoes of the Ancients</a></h6>
-				<div class="review-content d-flex">
-				<p class="my-2 me-2 fs-6 text-black-50">Lauren Asher</p>
+		<!-- Buku Pendidikan -->
+		<div class="col-md-6 mb-4 mb-lg-0 col-lg-3">
+			<div class="featured border rounded-3 p-4">
+				<div class="section-title overflow-hidden mb-5 mt-2">
+					<h3 class="d-flex flex-column mb-0">Buku Pendidikan</h3>
+				</div>
+				<div class="items-lists">
+					<!-- PERULANGAN UNTUK MENAMPILKAN DATA DARI DATABASE BUKU PENDIDIKAN -->
+					<?php foreach ($buku as $pendidkan) {?>
+						<!-- SELEKSI HANYA DI CETAK 3 DATA PERTAMA -->
+						<?php if ($countpendidikan <= 3){?>
+						<div class="item d-flex">
+							<img src="<?php echo BASE_URL?>/backend/image/buku/<?php  echo $pendidkan['foto']?>" class="img-fluid shadow-sm" alt="product item">
+							<div class="item-content ms-3">
+								<h6 class="mb-0 fw-bold"><a href="index.html"><?php echo $pendidkan['nama']?></a></h6>
+								<div class="review-content d-flex">
+								<p class="my-2 me-2 fs-6 text-black-50"><?php echo $pendidkan['penulis'] ?></p>
 
-				<div class="rating text-warning d-flex align-items-center">
-					<svg class="star star-fill">
-					<use xlink:href="#star-fill"></use>
-					</svg>
-					<svg class="star star-fill">
-					<use xlink:href="#star-fill"></use>
-					</svg>
-					<svg class="star star-fill">
-					<use xlink:href="#star-fill"></use>
-					</svg>
-					<svg class="star star-fill">
-					<use xlink:href="#star-fill"></use>
-					</svg>
-					<svg class="star star-fill">
-					<use xlink:href="#star-fill"></use>
-					</svg>
-				</div>
-				</div>
-				<span class="price text-primary fw-bold mb-2 fs-5">$870</span>
-			</div>
-			</div>
-			<hr class="gray-400">
-			<div class="item d-flex">
-			<img src="/Proyek-Website-Toko-Buku/Assets/frontend/images/product-item1.png" class="img-fluid shadow-sm" alt="product item">
-			<div class="item-content ms-3">
-				<h6 class="mb-0 fw-bold"><a href="index.html">The Midnight Garden</a></h6>
-				<div class="review-content d-flex">
-				<p class="my-2 me-2 fs-6 text-black-50">Lauren Asher</p>
-				<div class="rating text-warning d-flex align-items-center">
-					<svg class="star star-fill">
-					<use xlink:href="#star-fill"></use>
-					</svg>
-					<svg class="star star-fill">
-					<use xlink:href="#star-fill"></use>
-					</svg>
-					<svg class="star star-fill">
-					<use xlink:href="#star-fill"></use>
-					</svg>
-					<svg class="star star-fill">
-					<use xlink:href="#star-fill"></use>
-					</svg>
-					<svg class="star star-fill">
-					<use xlink:href="#star-fill"></use>
-					</svg>
-				</div>
-				</div>
-				<span class="price text-primary fw-bold mb-2 fs-5">$870</span>
-			</div>
-			</div>
-			<hr>
-			<div class="item d-flex">
-			<img src="/Proyek-Website-Toko-Buku/Assets/frontend/images/product-item3.png" class="img-fluid shadow-sm" alt="product item">
-			<div class="item-content ms-3">
-				<h6 class="mb-0 fw-bold"><a href="index.html">Shadow of the Serpent</a></h6>
-				<div class="review-content d-flex">
-				<p class="my-2 me-2 fs-6 text-black-50">Lauren Asher</p>
+								<div class="rating text-warning d-flex align-items-center">
+									<svg class="star star-fill">
+									<use xlink:href="#star-fill"></use>
+									</svg>
+									<svg class="star star-fill">
+									<use xlink:href="#star-fill"></use>
+									</svg>
+									<svg class="star star-fill">
+									<use xlink:href="#star-fill"></use>
+									</svg>
+									<svg class="star star-fill">
+									<use xlink:href="#star-fill"></use>
+									</svg>
+									<svg class="star star-fill">
+									<use xlink:href="#star-fill"></use>
+									</svg>
+								</div>
+								</div>
+							<span class="price text-primary fw-bold mb-2 fs-5">Rp.<?php echo $pendidkan['harga'] ?></span>
+							</div>
+						</div>
+						<hr class="gray-400">
+						<?php $countpendidikan++; }?>
+					<?php }?>
+				</div> 
+ 			</div> 
+		</div>
 
-				<div class="rating text-warning d-flex align-items-center">
-					<svg class="star star-fill">
-					<use xlink:href="#star-fill"></use>
-					</svg>
-					<svg class="star star-fill">
-					<use xlink:href="#star-fill"></use>
-					</svg>
-					<svg class="star star-fill">
-					<use xlink:href="#star-fill"></use>
-					</svg>
-					<svg class="star star-fill">
-					<use xlink:href="#star-fill"></use>
-					</svg>
-					<svg class="star star-fill">
-					<use xlink:href="#star-fill"></use>
-					</svg>
-				</div>
-				</div>
-				<span class="price text-primary fw-bold mb-2 fs-5">$870</span>
-			</div>
-			</div>
-		</div>
-		</div>
-	</div>
+
+	<!-- Buku  Komik -->
 	<div class="col-md-6 mb-4 mb-lg-0 col-lg-3">
 		<div class="latest-items border rounded-3 p-4">
-		<div class="section-title overflow-hidden mb-5 mt-2">
-			<h3 class="d-flex flex-column mb-0">Latest items</h3>
-		</div>
-		<div class="items-lists">
-			<div class="item d-flex">
-			<img src="/Proyek-Website-Toko-Buku/Assets/frontend/images/product-item4.png" class="img-fluid shadow-sm" alt="product item">
-			<div class="item-content ms-3">
-				<h6 class="mb-0 fw-bold"><a href="index.html">Whispering Winds</a></h6>
-				<div class="review-content d-flex">
-				<p class="my-2 me-2 fs-6 text-black-50">Lauren Asher</p>
-				<div class="rating text-warning d-flex align-items-center">
-					<svg class="star star-fill">
-					<use xlink:href="#star-fill"></use>
-					</svg>
-					<svg class="star star-fill">
-					<use xlink:href="#star-fill"></use>
-					</svg>
-					<svg class="star star-fill">
-					<use xlink:href="#star-fill"></use>
-					</svg>
-					<svg class="star star-fill">
-					<use xlink:href="#star-fill"></use>
-					</svg>
-					<svg class="star star-fill">
-					<use xlink:href="#star-fill"></use>
-					</svg>
-				</div>
-				</div>
-				<span class="price text-primary fw-bold mb-2 fs-5">$870</span>
-			</div>
-			</div>
-			<hr class="gray-400">
-			<div class="item d-flex">
+			<div class="section-title overflow-hidden mb-5 mt-2">
+				<h3 class="d-flex flex-column mb-0">Komik</h3>
+			</div>		
+			<div class="items-lists">
+				<?php foreach ($komik as $bukukomik) {?>
+					<?php //var_dump($bukukomik); die; ?>
+				<?php if ($countkomik <= 3){?>
+					<div class="item d-flex">
+					<img src="<?php echo BASE_URL?>/backend/image/buku/<?php echo $bukukomik['foto']?>" class="img-fluid shadow-sm" alt="product item">
+						<div class="item-content ms-3">
+							<h6 class="mb-0 fw-bold"><a href="index.html"><?php echo $bukukomik['nama']?></a></h6>
+							<div class="review-content d-flex">
+								<p class="my-2 me-2 fs-6 text-black-50"><?php echo $bukukomik['penulis']?></p>
+								<div class="rating text-warning d-flex align-items-center">
+									<svg class="star star-fill">
+									<use xlink:href="#star-fill"></use>
+									</svg>
+									<svg class="star star-fill">
+									<use xlink:href="#star-fill"></use>
+									</svg>
+									<svg class="star star-fill">
+									<use xlink:href="#star-fill"></use>
+									</svg>
+									<svg class="star star-fill">
+									<use xlink:href="#star-fill"></use>
+									</svg>
+									<svg class="star star-fill">
+									<use xlink:href="#star-fill"></use>
+									</svg>
+								</div>
+							</div>
+							<span class="price text-primary fw-bold mb-2 fs-5">Rp.<?php echo $bukukomik['harga']?></span>
+						</div>
+					</div>
+					<hr class="gray-400">
+					<?php $countkomik++; }?>
+				<?php }?>
+			
+			 <!-- <div class="item d-flex">
 			<img src="/Proyek-Website-Toko-Buku/Assets/frontend/images/product-item5.png" class="img-fluid shadow-sm" alt="product item">
 			<div class="item-content ms-3">
 				<h6 class="mb-0 fw-bold"><a href="index.html">The Forgotten Realm</a></h6>
@@ -646,138 +620,100 @@ style="background-image: url(images/banner-image-bg-1.jpg); background-size: cov
 				</div>
 				<span class="price text-primary fw-bold mb-2 fs-5">$870</span>
 			</div>
-			</div>
+			</div>  -->
 		</div>
 		</div>
 	</div>
+
+
+
+
+
+
+
+	<!-- Buku Novel -->
 	<div class="col-md-6 mb-4 mb-lg-0 col-lg-3">
 		<div class="best-reviewed border rounded-3 p-4">
 		<div class="section-title overflow-hidden mb-5 mt-2">
-			<h3 class="d-flex flex-column mb-0">Best reviewed</h3>
+			<h3 class="d-flex flex-column mb-0">Buku Novel </h3>
 		</div>
 		<div class="items-lists">
-			<div class="item d-flex">
-			<img src="/Proyek-Website-Toko-Buku/Assets/frontend/images/product-item7.png" class="img-fluid shadow-sm" alt="product item">
-			<div class="item-content ms-3">
-				<h6 class="mb-0 fw-bold"><a href="index.html">The Crystal Key</a></h6>
-				<div class="review-content d-flex">
-				<p class="my-2 me-2 fs-6 text-black-50">Lauren Asher</p>
-				<div class="rating text-warning d-flex align-items-center">
-					<svg class="star star-fill">
-					<use xlink:href="#star-fill"></use>
-					</svg>
-					<svg class="star star-fill">
-					<use xlink:href="#star-fill"></use>
-					</svg>
-					<svg class="star star-fill">
-					<use xlink:href="#star-fill"></use>
-					</svg>
-					<svg class="star star-fill">
-					<use xlink:href="#star-fill"></use>
-					</svg>
-					<svg class="star star-fill">
-					<use xlink:href="#star-fill"></use>
-					</svg>
-				</div>
-				</div>
-				<span class="price text-primary fw-bold mb-2 fs-5">$870</span>
-			</div>
-			</div>
-			<hr class="gray-400">
-			<div class="item d-flex">
-			<img src="/Proyek-Website-Toko-Buku/Assets/frontend/images/product-item8.png" class="img-fluid shadow-sm" alt="product item">
-			<div class="item-content ms-3">
-				<h6 class="mb-0 fw-bold"><a href="index.html">Starlight Sonata</a></h6>
-				<div class="review-content d-flex">
-				<p class="my-2 me-2 fs-6 text-black-50">Lauren Asher</p>
-				<div class="rating text-warning d-flex align-items-center">
-					<svg class="star star-fill">
-					<use xlink:href="#star-fill"></use>
-					</svg>
-					<svg class="star star-fill">
-					<use xlink:href="#star-fill"></use>
-					</svg>
-					<svg class="star star-fill">
-					<use xlink:href="#star-fill"></use>
-					</svg>
-					<svg class="star star-fill">
-					<use xlink:href="#star-fill"></use>
-					</svg>
-					<svg class="star star-fill">
-					<use xlink:href="#star-fill"></use>
-					</svg>
-				</div>
-				</div>
-				<span class="price text-primary fw-bold mb-2 fs-5">$870</span>
-			</div>
-			</div>
-			<hr>
-			<div class="item d-flex">
-			<img src="/Proyek-Website-Toko-Buku/Assets/frontend/images/product-item9.png" class="img-fluid shadow-sm" alt="product item">
-			<div class="item-content ms-3">
-				<h6 class="mb-0 fw-bold"><a href="index.html">Tales of the Enchanted Forest</a></h6>
-				<div class="review-content d-flex">
-				<p class="my-2 me-2 fs-6 text-black-50">Lauren Asher</p>
-				<div class="rating text-warning d-flex align-items-center">
-					<svg class="star star-fill">
-					<use xlink:href="#star-fill"></use>
-					</svg>
-					<svg class="star star-fill">
-					<use xlink:href="#star-fill"></use>
-					</svg>
-					<svg class="star star-fill">
-					<use xlink:href="#star-fill"></use>
-					</svg>
-					<svg class="star star-fill">
-					<use xlink:href="#star-fill"></use>
-					</svg>
-					<svg class="star star-fill">
-					<use xlink:href="#star-fill"></use>
-					</svg>
-				</div>
-				</div>
-				<span class="price text-primary fw-bold mb-2 fs-5">$870</span>
-			</div>
-			</div>
+				<?php foreach ($novel as $bukunovel) {?>
+					<?php //var_dump($bukunovel); die; ?>
+				<?php if ($countnovel <= 3){?>
+					<div class="item d-flex">
+					<img src="<?php echo BASE_URL?>/backend/image/buku/<?php echo $bukunovel['foto']?>" class="img-fluid shadow-sm" alt="product item">
+						<div class="item-content ms-3">
+							<h6 class="mb-0 fw-bold"><a href="index.html"><?php echo $bukunovel['nama']?></a></h6>
+							<div class="review-content d-flex">
+								<p class="my-2 me-2 fs-6 text-black-50"><?php echo $bukunovel['penulis']?></p>
+								<div class="rating text-warning d-flex align-items-center">
+									<svg class="star star-fill">
+									<use xlink:href="#star-fill"></use>
+									</svg>
+									<svg class="star star-fill">
+									<use xlink:href="#star-fill"></use>
+									</svg>
+									<svg class="star star-fill">
+									<use xlink:href="#star-fill"></use>
+									</svg>
+									<svg class="star star-fill">
+									<use xlink:href="#star-fill"></use>
+									</svg>
+									<svg class="star star-fill">
+									<use xlink:href="#star-fill"></use>
+									</svg>
+								</div>
+							</div>
+							<span class="price text-primary fw-bold mb-2 fs-5">Rp.<?php echo $bukunovel['harga']?></span>
+						</div>
+					</div>
+					<hr class="gray-400">
+					<?php $countnovel++; }?>
+				<?php }?>
 		</div>
 		</div>
 	</div>
+
+
+	<!-- Diskon -->
 	<div class="col-md-6 mb-4 mb-lg-0 col-lg-3">
 		<div class="on-sale border rounded-3 p-4">
 		<div class="section-title overflow-hidden mb-5 mt-2">
-			<h3 class="d-flex flex-column mb-0">On sale</h3>
+			<h3 class="d-flex flex-column mb-0">Diskon</h3>
 		</div>
 		<div class="items-lists">
 			<div class="item d-flex">
-			<img src="/Proyek-Website-Toko-Buku/Assets/frontend/images/product-item10.png" class="img-fluid shadow-sm" alt="product item">
-			<div class="item-content ms-3">
-				<h6 class="mb-0 fw-bold"><a href="index.html">The Phoenix Chronicles</a></h6>
-				<div class="review-content d-flex">
-				<p class="my-2 me-2 fs-6 text-black-50">Lauren Asher</p>
-				<div class="rating text-warning d-flex align-items-center">
-					<svg class="star star-fill">
-					<use xlink:href="#star-fill"></use>
-					</svg>
-					<svg class="star star-fill">
-					<use xlink:href="#star-fill"></use>
-					</svg>
-					<svg class="star star-fill">
-					<use xlink:href="#star-fill"></use>
-					</svg>
-					<svg class="star star-fill">
-					<use xlink:href="#star-fill"></use>
-					</svg>
-					<svg class="star star-fill">
-					<use xlink:href="#star-fill"></use>
-					</svg>
+				<img src="/Proyek-Website-Toko-Buku/Assets/frontend/images/product-item10.png" class="img-fluid shadow-sm" alt="product item">
+				<div class="item-content ms-3">
+					<h6 class="mb-0 fw-bold"><a href="index.html">The Phoenix Chronicles</a></h6>
+					<div class="review-content d-flex">
+					<p class="my-2 me-2 fs-6 text-black-50">Lauren Asher</p>
+						<div class="rating text-warning d-flex align-items-center">
+							<svg class="star star-fill">
+							<use xlink:href="#star-fill"></use>
+							</svg>
+							<svg class="star star-fill">
+							<use xlink:href="#star-fill"></use>
+							</svg>
+							<svg class="star star-fill">
+							<use xlink:href="#star-fill"></use>
+							</svg>
+							<svg class="star star-fill">
+							<use xlink:href="#star-fill"></use>
+							</svg>
+							<svg class="star star-fill">
+							<use xlink:href="#star-fill"></use>
+							</svg>
+						</div>
+					</div>
+					<span class="price text-primary fw-bold mb-2 fs-5"><s class="text-black-50">$1666</s>
+					$999</span>
 				</div>
-				</div>
-				<span class="price text-primary fw-bold mb-2 fs-5"><s class="text-black-50">$1666</s>
-				$999</span>
-			</div>
 			</div>
 			<hr class="gray-400">
-			<div class="item d-flex">
+
+			<!-- <div class="item d-flex">
 			<img src="/Proyek-Website-Toko-Buku/Assets/frontend/images/product-item11.png" class="img-fluid shadow-sm" alt="product item">
 			<div class="item-content ms-3">
 				<h6 class="mb-0 fw-bold"><a href="index.html">Dreams of Avalon</a></h6>
@@ -812,34 +748,35 @@ style="background-image: url(images/banner-image-bg-1.jpg); background-size: cov
 				<h6 class="mb-0 fw-bold"><a href="index.html">Legends of the Dragon Isles</a></h6>
 				<div class="review-content d-flex">
 				<p class="my-2 me-2 fs-6 text-black-50">Lauren Asher</p>
-				<div class="rating text-warning d-flex align-items-center">
-					<svg class="star star-fill">
-					<use xlink:href="#star-fill"></use>
-					</svg>
-					<svg class="star star-fill">
-					<use xlink:href="#star-fill"></use>
-					</svg>
-					<svg class="star star-fill">
-					<use xlink:href="#star-fill"></use>
-					</svg>
-					<svg class="star star-fill">
-					<use xlink:href="#star-fill"></use>
-					</svg>
-					<svg class="star star-fill">
-					<use xlink:href="#star-fill"></use>
-					</svg>
-				</div>
+					<div class="rating text-warning d-flex align-items-center">
+						<svg class="star star-fill">
+						<use xlink:href="#star-fill"></use>
+						</svg>
+						<svg class="star star-fill">
+						<use xlink:href="#star-fill"></use>
+						</svg>
+						<svg class="star star-fill">
+						<use xlink:href="#star-fill"></use>
+						</svg>
+						<svg class="star star-fill">
+						<use xlink:href="#star-fill"></use>
+						</svg>
+						<svg class="star star-fill">
+						<use xlink:href="#star-fill"></use>
+						</svg>
+					</div>
 				</div>
 				<span class="price text-primary fw-bold mb-2 fs-5"><s class="text-black-50">$600</s>
 				$500</span>
 			</div>
-			</div>
+			</div> -->
 		</div>
 		</div>
 	</div>
 	</div>
 </div>
 </section>
+
 
 <section id="categories" class="padding-large pt-0">
 <div class="container">

@@ -5,6 +5,7 @@ class admin_model {
     private $db;
 
 
+    // Setiap class dipanggil ini terpanggil
     public function __construct()
     {
         $this->db = new database;
@@ -26,6 +27,7 @@ class admin_model {
         endif;
     }
 
+    // Cek password
     public function cekPassword($data) {
         
         if (!isset($data['nama_user']) || !isset($data['password_user'])) {
@@ -54,7 +56,7 @@ class admin_model {
         endif;
     }
 
-
+    // Ambil tabel apa saja sesuai inputan
     public function ambilTabel($nama_tabel){
         $allowedTables = ['buku', 'user']; // Daftar tabel yang diizinkan
 
@@ -73,7 +75,7 @@ class admin_model {
         }
     }
 
-
+    // Tambah Buku
     public function tambahBuku($data){
         // var_dump($data); var_dump($_FILES['foto']); die;
 
@@ -102,6 +104,8 @@ class admin_model {
         
     }
 
+
+    // Tambah Kategori
     public function tambahKategori($data){
         $nama = htmlspecialchars($data['nama']);
         $query = "INSERT INTO kategori
@@ -125,6 +129,8 @@ class admin_model {
         return $this->db->rowCount();
     }
 
+
+    // Hapus Kategori
     public function hapusKategori($id){
         $query = "DELETE FROM kategori WHERE id = :id";
         $this->db->Query($query);
@@ -138,7 +144,7 @@ class admin_model {
 
     
 
-
+    // Update data buku
     public function ubah($data, $newFotoFileName = null){ // Ubah nama parameter dan nilai default
         $query = "UPDATE buku SET
                     nama = :nama,
@@ -174,6 +180,7 @@ class admin_model {
     }
 
     
+    // Ambil buku tapi dari id untuk update
     public function ambilBukuDariId($id) {
         $this->db->Query("SELECT * FROM buku WHERE id = :id");
         $this->db->Bind(':id', $id);
@@ -181,6 +188,7 @@ class admin_model {
     }
 
 
+    // Ambil foto buku dari id
     public function ambilFotoBukuDariId($id) {
         $this->db->Query("SELECT foto FROM buku WHERE id = :id");
         $this->db->Bind(':id', $id);
