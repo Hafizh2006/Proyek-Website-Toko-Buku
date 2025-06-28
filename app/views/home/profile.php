@@ -5,7 +5,7 @@
     
     
     <!-- Kolom kiri: Foto Profil jika tidak ada gambarnya -->
-    <?php if (is_null($data['user']['foto']) == true): ?>
+    <?php if (is_null($data['user']['foto'])): ?>
       <div class="col-md-4 text-center">
         <div class="profile-img-wrapper mb-3">
           <img src="https://via.placeholder.com/200" class="img-thumbnail rounded-circle" alt="Profile Picture" style="width:200px;height:200px;object-fit:cover;">
@@ -15,10 +15,10 @@
     <?php endif; ?>
 
     <!-- Kolom kiri Foto Profil jika ada gambarnya -->
-    <?php if (is_null($data['user']['foto']) == false): ?>
+    <?php if (!is_null($data['user']['foto'])): ?>
       <div class="col-md-4 text-center">
         <div class="profile-img-wrapper mb-3">
-          <img src="<?php echo BASE_URL?>/backend/image/user/<?php echo $data['user']['foto_user']?>" class="img-thumbnail rounded-circle" alt="Profile Picture" style="width:200px;height:200px;object-fit:cover;">
+          <img src="<?php echo BASE_URL?>/backend/image/user/<?php echo $data['user']['foto']?>" class="img-thumbnail rounded-circle" alt="Profile Picture" style="width:200px;height:200px;object-fit:cover;">
         </div>
         <!-- <button class="btn btn-outline-primary w-100">Unggah / Ganti Foto</button> -->
       </div>
@@ -48,10 +48,9 @@
 
       <!-- Buttons -->
       <div class="d-flex gap-2 mt-3">
-        <a href=""> <button class="btn btn-warning btn-sm">Ganti Password</button></a>
-        <a href=""><button class="btn btn-success btn-sm">Update Profile</button></a>
+        <a href="<?php echo BASE_URL?>/home/HalamanUpdate"><button class="btn btn-success btn-sm">Update Profile</button></a>
         <a href="<?php echo BASE_URL ?>/home/logout"><button class="btn btn-success btn-sm">Logout</button></a>
-        <a href=""><button class="btn btn-success btn-sm">Hapus Akun</button></a>
+        <a href="<?php echo BASE_URL?>/home/deleteUser/<?php echo $data['user']['id']?>"><button class="btn btn-success btn-sm">Hapus Akun</button></a>
       </div>
     </div>
 

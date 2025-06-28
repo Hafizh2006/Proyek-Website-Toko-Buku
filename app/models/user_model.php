@@ -89,6 +89,41 @@ class user_model
         endif;
     }
 
+    // cekPasswordLama cek password lama lewat input update
+    public function cekPasswordLama($data) {
+        
+        if (!isset($data['nama_user']) || !isset($data['password_user'])) {
+            return false; 
+        }
+
+        // Mencegah  Sql injection
+        $username = htmlspecialchars($data['nama_user']);
+        $password = htmlspecialchars($data['password_old']);
+
+        // Mengkuerikan
+        $this->db->Query("SELECT password_user, role FROM ". $this->table. " WHERE nama_user = :nama_user");
+        $this->db->Bind(':nama_user', $username);
+        $this->db->execute();
+        $result_user = $this->db->single();
+        //var_dump($result_user); die;
+        // Result user
+        if (isset($result_user)):
+            if ($result_user['role'] === 'user'):
+                if (password_verify($password, $result_user['password_user'])):
+                    return True;
+                else:
+                    return False;
+                endif;
+            else:
+                return False;
+            endif;
+
+        else:
+            return False;
+        endif;
+    }
+
+
     // Tambah user
     public function tambahUser($data) {
         $query = "INSERT INTO user
@@ -125,24 +160,99 @@ class user_model
     }
 
     // Mengubah user berdasarkan id
-    public function ubahUser($data){
+    public function ubahUser($data, $newFotoFileName = null){
+        //var_dump($data); die;
+        $nama_user = htmlspecialchars($data['nama_user']);
+        
+        // Jika ada inputan password baru
+        if ($data['passwordUpdate'] === True){
+            $password_user = htmlspecialchars($data['password_user']);
+        }
 
-        $query = "UPDATE mahasiswa SET
+        $email_user = htmlspecialchars($data['email_user']);
+        $alamat_user = htmlspecialchars($data['alamat_user']);
+        $no_user = htmlspecialchars($data['no_user']);
+        
+
+        $query = "UPDATE user SET
                     nama_user = :nama_user,
-                    password_user = :password_user,
                     email_user = :email_user,
-                    alamat_user = :alamat_user
-                    WHERE id = :id";
+                    alamat_user = :alamat_user,
+                    no_user = :no_user";
+        
+        // Kuerikan bila ada
+        if ($data['passwordUpdate'] === True ){ 
+            $query .= ", password_user = :password_user";
+        }
+
+        // Seleksi foto null atau ada isinya
+        if ($newFotoFileName !== null){ 
+            $query .= ", foto = :foto";
+        }
+
+        
+
+        // Dipisah agar tidak langsung dikuerikan
+        $query .= " WHERE id = :id"; 
+
         $this->db->Query($query);
-        $this->db->Bind("nama_user", $data['nama_user']);
-        $this->db->Bind("password_user", $data['password_user']);
-        $this->db->Bind("email_user", $data['email_user']);
-        $this->db->Bind("alamat_user", $data['alamat_user']);
+
+
+        $this->db->Query($query);
+        $this->db->Bind("nama_user", $nama_user);
+        $this->db->Bind("email_user", $email_user);
+        $this->db->Bind("alamat_user", $alamat_user);
+        $this->db->Bind("no_user", $no_user);
         $this->db->Bind("id", $data['id']);
+
+        // Bind password jika ada
+        if ($data['passwordUpdate'] === True ){
+            $this->db->Bind("password_user", password_hash($password_user, PASSWORD_DEFAULT));
+        }
+        // Bind foto hanya jika ada input foto 
+        if ($newFotoFileName !== null){
+            $this->db->Bind(':foto', $newFotoFileName);
+        }
+
 
         $this->db->execute();
 
         return $this->db->rowCount();
         return 0;
+    }
+
+    // Update data buku
+    public function ubah($data, $newFotoFileName = null){ // Ubah nama parameter dan nilai default
+        $query = "UPDATE buku SET
+                    nama = :nama,
+                    harga =  :harga,
+                    stok =  :stok,
+                    penulis =  :penulis,
+                    id_kategori =  :id_kategori";
+        
+        if ($newFotoFileName !== null){ 
+            $query .= ", foto = :foto";
+        }
+
+        $query .= " WHERE id = :id"; 
+
+        $this->db->Query($query);
+
+        // Bind parameter
+        $this->db->Bind(":nama", $data['nama']);
+        $this->db->Bind(":harga", $data['harga']);
+        $this->db->Bind(":stok", $data['stok']);
+        $this->db->Bind(":penulis", $data['penulis']);
+        $this->db->Bind(":id_kategori", $data['id_kategori']);
+        $this->db->Bind(":id", $data['id']);     
+        
+        // Bind foto hanya jika ada foto baru
+        if ($newFotoFileName !== null){
+            $this->db->Bind(':foto', $newFotoFileName);
+        }
+        
+        $this->db->execute();
+
+        return $this->db->rowCount();
     }
 }

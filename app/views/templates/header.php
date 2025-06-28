@@ -235,10 +235,10 @@
                   <a class="nav-link me-4 active" href="<?php echo BASE_URL?>">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link me-4" href="<?php echo BASE_URL?>/views/home/catalog">Shop</a>
+                  <a class="nav-link me-4" href="<?php echo BASE_URL?>/home/catalog">Shop</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link me-4" href="<?php echo BASE_URL?>/views/home/about">About</a>
+                  <a class="nav-link me-4" href="<?php echo BASE_URL?>/home/about">About</a>
                 </li>
                 <!-- <li class="nav-item">
                   <a class="nav-link me-4" href="index.html">Blogs</a>
@@ -434,7 +434,7 @@
                     </div>
                   </li> -->
                   <li class="cart-dropdown dropdown">
-                    <a href="pages/cart.php" role="button"
+                    <a href="<?php echo BASE_URL?>/home/cart" role="button"
                       aria-expanded="false">
                       <svg class="cart">
                         <use xlink:href="#cart"></use>

@@ -1,40 +1,7 @@
-<?php 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-session_start();
-
-// // Validasi Session
-// if(isset($_SESSION['submit'])) {
-// 	$user = $_SESSION['dataLogin'];
-// 	if (!$_SESSION['submit']){
-// 		header("Location:../pages/loginPage.php");
-//     	exit;
-// 	}
-
-// } else {
-// 	header("Location:/proyek-webs/Proyek-Website-Toko-Buku/pages/loginPage.php");
-//     exit;
-// }
-
-
-// Require
-require_once dirname(__DIR__) . '/' ."/config/const.php";
-require_once ROOT_PATH . "actions/login_process.php";
-require_once ROOT_PATH .  "actions/signUp_process.php";
-
-// Ambil data User suatu function menggunakan $_SESSION['dataLogin] yang menyimpan data $_POST dari form login
-// $dataUser = ambilDataUser($user);
-
-// header tampilan website 
-require_once ROOT_PATH . "/includes/header.php";
-?>
-
-
-
 <section class="container my-5">
-  <h2 class="text-center mb-4">Our Catalog</h2>
+  <h2 class="text-center mb-4">Katalog kita</h2>
   <div class="row g-4">
+
     <!-- Item 1 -->
     <div class="col-6 col-md-4 col-lg-3">
       <div class="card h-100 shadow-sm">
@@ -46,6 +13,7 @@ require_once ROOT_PATH . "/includes/header.php";
         </div>
       </div>
     </div>
+
     <!-- Item 2 -->
     <div class="col-6 col-md-4 col-lg-3">
       <div class="card h-100 shadow-sm">
@@ -57,6 +25,7 @@ require_once ROOT_PATH . "/includes/header.php";
         </div>
       </div>
     </div>
+
     <!-- Item 3 -->
     <div class="col-6 col-md-4 col-lg-3">
       <div class="card h-100 shadow-sm">
@@ -82,8 +51,3 @@ require_once ROOT_PATH . "/includes/header.php";
     <!-- ... tambah lebih banyak produk sesuai kebutuhan -->
   </div>
 </section>
-
-
-<?php 
-require_once ROOT_PATH . "/includes/footer.php";
-?>
