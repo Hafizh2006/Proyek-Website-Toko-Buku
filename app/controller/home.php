@@ -377,6 +377,14 @@ class Home extends Controller{
         }
     }
 
+
+    public function detailproduk(){
+        $data['judul'] = "Detailproduk";
+        $this->view("templates/header", $data);
+        $this->view("home/detailproduk", $data);
+        $this->view("templates/footer");
+    }
+
 }
 
 ?>

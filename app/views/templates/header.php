@@ -279,14 +279,19 @@
               </ul>
               <div class="user-items d-flex">
                 <ul class="d-flex justify-content-end list-unstyled mb-0">
-                  <li class="search-item pe-3">
-                    <a href="#" class="search-button">
-                      
-                      <svg class="search">
+                  <li class="nav-item dropdown pe-3">
+                    <a href="#" class="nav-link" id="searchDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      <svg class="search" width="20" height="20" fill="currentColor">
                         <use xlink:href="#search"></use>
                       </svg>
                     </a>
+                    <ul class="dropdown-menu dropdown-menu-end p-3" aria-labelledby="searchDropdown" style="min-width: 400px;">
+                      <li>
+                        <input type="text" class="form-control" placeholder="Cari buku atau kategori..." />
+                      </li>
+                    </ul>
                   </li>
+
                   <li class="pe-3">
                     <!-- Tombol modal jika belum login-->
                     <?php if(!isset($_SESSION['LoginUser'])):?>

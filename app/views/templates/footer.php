@@ -5,9 +5,8 @@
             <div class="row d-flex flex-wrap justify-content-between">
               <div class="col-lg-3 col-sm-6 pb-3">
                 <div class="footer-menu">
-                  <img src="<?php echo BASE_URL?>/frontend/Img/logo-d.png" alt="logo" class="img-fluid mb-2">
-                  <p>Nisi, purus vitae, ultrices nunc. Sit ac sit suscipit hendrerit. Gravida massa volutpat aenean odio
-                    erat nullam fringilla.</p>
+                  <img src="<?php echo BASE_URL?>/frontend/images/logo-d.png" alt="logo" class="img-fluid mb-2">
+                  <p>Made with love💖</p>
                   <!-- <div class="social-links">
                     <ul class="d-flex list-unstyled">
                       <li>
@@ -57,17 +56,17 @@
                       <a href="#">Home</a>
                     </li>
                     <li class="menu-item mb-1">
-                      <a href="/pages/about.php">About</a>
+                      <a href="<?php echo BASE_URL?>/home/about">About</a>
                     </li>
                     <li class="menu-item mb-1">
-                      <a href="#">Shop</a>
+                      <a href="<?php echo BASE_URL?>/home/catalog">Katalog</a>
                     </li>
-                    <li class="menu-item mb-1">
+                    <!-- <li class="menu-item mb-1">
                       <a href="#">Blogs</a>
                     </li>
                     <li class="menu-item mb-1">
                       <a href="#">Contact</a>
-                    </li>
+                    </li> -->
                   </ul>
                 </div>
               </div>
@@ -96,8 +95,16 @@
               <div class="col-lg-3 col-sm-6 pb-3">
                 <div class="footer-menu contact-item">
                   <h5 class="widget-title text-capitalize pb-2">Hubungi kami</h5>
-                  <p><a href="mailto:"
-                      class="text-decoration-underline">2400018010@webmail.uad.ac.id</a></p>
+                  Hafizh Ashshiddiqie
+                  <p><a href="mailto:" class="text-decoration-underline">2400018003@webmail.uad.ac.id</a></p>
+                  Ridang Bima Pamungkas	
+                  <p><a href="mailto:" class="text-decoration-underline">2400018007@webmail.uad.ac.id</a></p>
+                  Muhammad Athailah
+                  <p><a href="mailto:" class="text-decoration-underline">2400018010@webmail.uad.ac.id</a></p>
+                  Muhamad Ardyan Yulianto
+                  <p><a href="mailto:" class="text-decoration-underline">2400018033@webmail.uad.ac.id</a></p>
+                  Reza Aditya
+                  <p><a href="mailto:" class="text-decoration-underline">2400018009@webmail.uad.ac.id</a></p>
                   <!-- <p>If you need support? Just give us a call. <a href="#" class="text-decoration-underline">+55 111 222
                       333 44</a></p> -->
                 </div>
