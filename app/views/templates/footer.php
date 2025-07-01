@@ -53,13 +53,13 @@
                   <h5 class="widget-title pb-2">Quick Links</h5>
                   <ul class="menu-list list-unstyled text-capitalize">
                     <li class="menu-item mb-1">
-                      <a href="#">Home</a>
+                      <a href="<?php echo BASE_URL?>">Home</a>
                     </li>
                     <li class="menu-item mb-1">
                       <a href="<?php echo BASE_URL?>/home/about">About</a>
                     </li>
                     <li class="menu-item mb-1">
-                      <a href="<?php echo BASE_URL?>/home/catalog">Katalog</a>
+                      <a href="<?php echo BASE_URL?>/home/allCategory">Katalog</a>
                     </li>
                     <!-- <li class="menu-item mb-1">
                       <a href="#">Blogs</a>

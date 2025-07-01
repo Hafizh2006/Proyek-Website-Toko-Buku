@@ -21,7 +21,7 @@ class user_model
     public function getEmailUser($email_user) {
         $email_user_modified = htmlspecialchars($email_user);
         $this->db->Query("SELECT email_user FROM ". $this->table ." WHERE email_user = :email_user");
-        $this->db->Bind(':email_user', $$email_user_modified);
+        $this->db->Bind(':email_user', $email_user_modified);
         return $this->db->single();
     }
 
@@ -254,5 +254,26 @@ class user_model
         $this->db->execute();
 
         return $this->db->rowCount();
+    }
+
+
+    public function ambilSemuaBukuDarIdkategori($id){
+        $this->db->Query("SELECT * FROM buku WHERE id_kategori = :id");
+        $this->db->Bind(":id", $id);
+        $this->db->execute();
+        return $this->db->resultSet();
+    }
+
+    public function ambilSemuaBuku(){
+        $this->db->Query("SELECT * FROM buku");
+        $this->db->execute();
+        return $this->db->resultSet();
+    }
+
+    public function ambilBukuById($id){
+        $this->db->Query("SELECT * FROM buku WHERE id = :id");
+        $this->db->Bind(":id",  $id);
+        $this->db->execute();
+        return $this->db->single();
     }
 }

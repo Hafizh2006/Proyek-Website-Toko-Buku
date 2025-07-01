@@ -17,7 +17,7 @@ class buku_model
         return $this->db->resultSet(); 
     }
 
-    public function getAllBukubyId($id) {
+    public function getAllBukuById($id) {
         $this->db->Query("SELECT * FROM ". $this->table. " WHERE id = :id");
         $this->db->Bind('id', $id);
         return $this->db->single();

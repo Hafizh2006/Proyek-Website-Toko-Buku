@@ -3,7 +3,7 @@
 $buku = $data['pendidikan'];
 $novel = $data['novel'];
 $komik = $data['komik'];
-
+//var_dump($buku[0]['foto']); die;
 $countpendidikan = 1;
 $countkomik = 1;
 $countnovel = 1;
@@ -38,7 +38,7 @@ style="background-image: url(<?php echo BASE_URL?>/frontend/images/banner-image-
 			</div>
 			<div class="col-md-6 text-center">
 			<div class="image-holder">
-				<img src="<?php echo BASE_URL?>/backend/image/buku/<?php $bukubanner['foto'] ?>" class="img-fluid" alt="banner">
+				<img src="<?php echo BASE_URL?>/backend/image/buku/<?php echo $buku[0]['foto'] ?>" class="img-fluid" alt="banner">
 			</div>
 			</div>
 		</div>
@@ -486,15 +486,15 @@ style="background-image: url(images/banner-image-bg-1.jpg); background-size: cov
 				</div>
 				<div class="items-lists">
 					<!-- PERULANGAN UNTUK MENAMPILKAN DATA DARI DATABASE BUKU PENDIDIKAN -->
-					<?php foreach ($buku as $pendidkan) {?>
+					<?php foreach ($buku as $pendidikan) {?>
 						<!-- SELEKSI HANYA DI CETAK 3 DATA PERTAMA -->
 						<?php if ($countpendidikan <= 3){?>
 						<div class="item d-flex">
-							<img src="<?php echo BASE_URL?>/backend/image/buku/<?php  echo $pendidkan['foto']?>" class="img-fluid shadow-sm" alt="product item">
+							<a href="<?php echo BASE_URL?>/home/product/<?php echo $pendidikan['id']?>"><img src="<?php echo BASE_URL?>/backend/image/buku/<?php  echo $pendidikan['foto'] ?>" class="img-fluid shadow-sm" alt="product item"></a>
 							<div class="item-content ms-3">
-								<h6 class="mb-0 fw-bold"><a href="index.html"><?php echo $pendidkan['nama']?></a></h6>
+								<h6 class="mb-0 fw-bold"><a href="<?php echo BASE_URL?>/home/product/<?php  echo $pendidikan['id']?>"><?php echo $pendidikan['nama']?></a></h6>
 								<div class="review-content d-flex">
-								<p class="my-2 me-2 fs-6 text-black-50"><?php echo $pendidkan['penulis'] ?></p>
+								<p class="my-2 me-2 fs-6 text-black-50"><?php echo $pendidikan['penulis'] ?></p>
 
 								<div class="rating text-warning d-flex align-items-center">
 									<svg class="star star-fill">
@@ -514,7 +514,7 @@ style="background-image: url(images/banner-image-bg-1.jpg); background-size: cov
 									</svg>
 								</div>
 								</div>
-							<span class="price text-primary fw-bold mb-2 fs-5">Rp.<?php echo $pendidkan['harga'] ?></span>
+							<span class="price text-primary fw-bold mb-2 fs-5">Rp.<?php echo number_format($pendidikan['harga'], 0, '.', ',') ?></span>
 							</div>
 						</div>
 						<hr class="gray-400">
@@ -536,9 +536,9 @@ style="background-image: url(images/banner-image-bg-1.jpg); background-size: cov
 					<?php //var_dump($bukukomik); die; ?>
 				<?php if ($countkomik <= 3){?>
 					<div class="item d-flex">
-					<img src="<?php echo BASE_URL?>/backend/image/buku/<?php echo $bukukomik['foto']?>" class="img-fluid shadow-sm" alt="product item">
+					<a href="<?php echo BASE_URL?>/home/product/<?php echo $bukukomik['id']?>"><img src="<?php echo BASE_URL?>/backend/image/buku/<?php echo $bukukomik['foto']?>" class="img-fluid shadow-sm" alt="product item"></a>
 						<div class="item-content ms-3">
-							<h6 class="mb-0 fw-bold"><a href="index.html"><?php echo $bukukomik['nama']?></a></h6>
+							<h6 class="mb-0 fw-bold"><a href="<?php echo BASE_URL?>/home/product/<?php echo $bukukomik['id']?>"><?php echo $bukukomik['nama']?></a></h6>
 							<div class="review-content d-flex">
 								<p class="my-2 me-2 fs-6 text-black-50"><?php echo $bukukomik['penulis']?></p>
 								<div class="rating text-warning d-flex align-items-center">
@@ -559,7 +559,7 @@ style="background-image: url(images/banner-image-bg-1.jpg); background-size: cov
 									</svg>
 								</div>
 							</div>
-							<span class="price text-primary fw-bold mb-2 fs-5">Rp.<?php echo $bukukomik['harga']?></span>
+							<span class="price text-primary fw-bold mb-2 fs-5">Rp.<?php echo number_format($bukukomik['harga'], 0, '.', ',')?></span>
 						</div>
 					</div>
 					<hr class="gray-400">
@@ -642,9 +642,9 @@ style="background-image: url(images/banner-image-bg-1.jpg); background-size: cov
 					<?php //var_dump($bukunovel); die; ?>
 				<?php if ($countnovel <= 3){?>
 					<div class="item d-flex">
-					<img src="<?php echo BASE_URL?>/backend/image/buku/<?php echo $bukunovel['foto']?>" class="img-fluid shadow-sm" alt="product item">
+					<a href="<?php echo BASE_URL?>/home/product/<?php echo $item['id']?>"><img src="<?php echo BASE_URL?>/backend/image/buku/<?php echo $bukunovel['foto']?>" class="img-fluid shadow-sm" alt="product item"></a>
 						<div class="item-content ms-3">
-							<h6 class="mb-0 fw-bold"><a href="index.html"><?php echo $bukunovel['nama']?></a></h6>
+							<h6 class="mb-0 fw-bold"><a href="<?php echo BASE_URL?>/home/product/<?php  echo $bukunovel['id']?>"><?php echo $bukunovel['nama']?></a></h6>
 							<div class="review-content d-flex">
 								<p class="my-2 me-2 fs-6 text-black-50"><?php echo $bukunovel['penulis']?></p>
 								<div class="rating text-warning d-flex align-items-center">
@@ -665,7 +665,7 @@ style="background-image: url(images/banner-image-bg-1.jpg); background-size: cov
 									</svg>
 								</div>
 							</div>
-							<span class="price text-primary fw-bold mb-2 fs-5">Rp.<?php echo $bukunovel['harga']?></span>
+							<span class="price text-primary fw-bold mb-2 fs-5">Rp.<?php echo number_format($bukunovel['harga'], 0, '.', ',')?></span>
 						</div>
 					</div>
 					<hr class="gray-400">
@@ -788,7 +788,7 @@ style="background-image: url(images/banner-image-bg-1.jpg); background-size: cov
 		<div class="card mb-4 border-0 rounded-3 position-relative">
 		<a href="index.html">
 			<img src="<?php echo BASE_URL?>/frontend/images/kategorinovel.png" class="img-fluid rounded-3" alt="cart item">
-			<h6 class=" position-absolute bottom-0 bg-primary m-4 py-2 px-3 rounded-3"><a href="index.html"
+			<h6 class=" position-absolute bottom-0 bg-primary m-4 py-2 px-3 rounded-3"><a href="<?php echo BASE_URL?>/home/category/<?php echo 4?>"
 				class="text-white">Novel</a></h6>
 		</a>
 		</div>
@@ -797,7 +797,7 @@ style="background-image: url(images/banner-image-bg-1.jpg); background-size: cov
 		<div class="card text-center mb-4 border-0 rounded-3">
 		<a href="index.html">
 			<img src="<?php echo BASE_URL?>/frontend/images/kategorikomik.png" class="img-fluid rounded-3" alt="cart item">
-			<h6 class=" position-absolute bottom-0 bg-primary m-4 py-2 px-3 rounded-3"><a href="index.html"
+			<h6 class=" position-absolute bottom-0 bg-primary m-4 py-2 px-3 rounded-3"><a href="<?php echo BASE_URL?>/home/category/<?php  echo 3?>"
 				class="text-white">Komik</a></h6>
 		</a>
 		</div>
@@ -806,8 +806,8 @@ style="background-image: url(images/banner-image-bg-1.jpg); background-size: cov
 		<div class="card text-center mb-4 border-0 rounded-3">
 		<a href="index.html">
 			<img src="<?php echo BASE_URL?>/frontend/images/kategorimasak.png" class="img-fluid rounded-3" alt="cart item">
-			<h6 class=" position-absolute bottom-0 bg-primary m-4 py-2 px-3 rounded-3"><a href="index.html"
-				class="text-white">Masak</a></h6>
+			<h6 class=" position-absolute bottom-0 bg-primary m-4 py-2 px-3 rounded-3"><a href="<?php echo BASE_URL?>/home/category/<?php echo 1?>"
+				class="text-white">Pendidikan</a></h6>
 		</a>
 		</div>
 	</div>

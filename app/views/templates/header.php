@@ -235,7 +235,7 @@
                   <a class="nav-link me-4 active" href="<?php echo BASE_URL?>">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link me-4" href="<?php echo BASE_URL?>/home/catalog">Shop</a>
+                  <a class="nav-link me-4" href="<?php echo BASE_URL?>/home/allCategory">Shop</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link me-4" href="<?php echo BASE_URL?>/home/about">About</a>
@@ -279,19 +279,14 @@
               </ul>
               <div class="user-items d-flex">
                 <ul class="d-flex justify-content-end list-unstyled mb-0">
-                  <li class="nav-item dropdown pe-3">
-                    <a href="#" class="nav-link" id="searchDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      <svg class="search" width="20" height="20" fill="currentColor">
+                  <li class="search-item pe-3">
+                    <a href="#" class="search-button">
+                      
+                      <svg class="search">
                         <use xlink:href="#search"></use>
                       </svg>
                     </a>
-                    <ul class="dropdown-menu dropdown-menu-end p-3" aria-labelledby="searchDropdown" style="min-width: 400px;">
-                      <li>
-                        <input type="text" class="form-control" placeholder="Cari buku atau kategori..." />
-                      </li>
-                    </ul>
                   </li>
-
                   <li class="pe-3">
                     <!-- Tombol modal jika belum login-->
                     <?php if(!isset($_SESSION['LoginUser'])):?>
@@ -438,48 +433,29 @@
                       </div>
                     </div>
                   </li> -->
+                  
+                  <!-- Jika tidaj ada sesi -->
+                  <?php if (!isset($_SESSION['LoginUser'])):?>
+                    <li class="cart-dropdown dropdown">
+                      <a href="<?php echo BASE_URL?>" role="button" aria-expanded="false">
+                        <svg class="cart">
+                          <use xlink:href="#cart"></use>
+                        </svg><span class="fs-6 fw-light"></span>
+                      </a>
+                    </li>
+                  <?php endif;?>
+
+                  <!-- Jika ada sesi -->
+                  <?php if (isset($_SESSION['LoginUser'])):?>
                   <li class="cart-dropdown dropdown">
-                    <a href="<?php echo BASE_URL?>/home/cart" role="button"
-                      aria-expanded="false">
+                    <a href="<?php echo BASE_URL?>/home/lihatCart/<?php echo $_SESSION['LoginUser']['id'] ?>" role="button" aria-expanded="false">
                       <svg class="cart">
                         <use xlink:href="#cart"></use>
                       </svg><span class="fs-6 fw-light"></span>
                     </a>
-                    <!-- <div class="dropdown-menu animate slide dropdown-menu-start dropdown-menu-lg-end p-3">
-                      <h4 class="d-flex justify-content-between align-items-center mb-3">
-                        <span class="text-primary">Your cart</span>
-                        <span class="badge bg-primary rounded-pill">2</span>
-                      </h4>
-                      <ul class="list-group mb-3">
-                        <li class="list-group-item bg-transparent d-flex justify-content-between lh-sm">
-                          <div>
-                            <h5>
-                              <a href="index.html">Secrets of the Alchemist</a>
-                            </h5>
-                            <small>High quality in good price.</small>
-                          </div>
-                          <span class="text-primary">$870</span>
-                        </li>
-                        <li class="list-group-item bg-transparent d-flex justify-content-between lh-sm">
-                          <div>
-                            <h5>
-                              <a href="index.html">Quest for the Lost City</a>
-                            </h5>
-                            <small>Professional Quest for the Lost City.</small>
-                          </div>
-                          <span class="text-primary">$600</span>
-                        </li>
-                        <li class="list-group-item bg-transparent d-flex justify-content-between">
-                          <span class="text-capitalize"><b>Total (USD)</b></span>
-                          <strong>$1470</strong>
-                        </li>
-                      </ul>
-                      <div class="d-flex flex-wrap justify-content-center">
-                        <a href="pages/cart.php" class="w-100 btn btn-dark mb-1" type="submit">View Cart</a>
-                        <a href="index.html" class="w-100 btn btn-primary" type="submit">Go to checkout</a>
-                      </div>
-                    </div> -->
                   </li>
+                  <?php endif;?>
+                  
                 </ul>
               </div>
             </div>
