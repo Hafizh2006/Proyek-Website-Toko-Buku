@@ -3,95 +3,35 @@
         <div class="row">
           <div class="footer-top-area">
             <div class="row d-flex flex-wrap justify-content-between">
+
               <div class="col-lg-3 col-sm-6 pb-3">
                 <div class="footer-menu">
                   <img src="<?php echo BASE_URL?>/frontend/images/logo-d.png" alt="logo" class="img-fluid mb-2">
                   <p>Made with love💖</p>
-                  <!-- <div class="social-links">
-                    <ul class="d-flex list-unstyled">
-                      <li>
-                        <a href="#">
-                          <svg class="facebook">
-                            <use xlink:href="#facebook" />
-                          </svg>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <svg class="instagram">
-                            <use xlink:href="#instagram" />
-                          </svg>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <svg class="twitter">
-                            <use xlink:href="#twitter" />
-                          </svg>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <svg class="linkedin">
-                            <use xlink:href="#linkedin" />
-                          </svg>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <svg class="youtube">
-                            <use xlink:href="#youtube" />
-                          </svg>
-                        </a>
-                      </li>
-                    </ul>
-                  </div> -->
                 </div>
               </div>
+
               <div class="col-lg-2 col-sm-6 pb-3">
                 <div class="footer-menu text-capitalize">
                   <h5 class="widget-title pb-2">Quick Links</h5>
                   <ul class="menu-list list-unstyled text-capitalize">
+
                     <li class="menu-item mb-1">
-                      <a href="#">Home</a>
+                      <a href="<?php echo BASE_URL?>">Home</a>
                     </li>
+
                     <li class="menu-item mb-1">
                       <a href="<?php echo BASE_URL?>/home/about">About</a>
                     </li>
+
                     <li class="menu-item mb-1">
-                      <a href="<?php echo BASE_URL?>/home/catalog">Katalog</a>
+                      <a href="<?php echo BASE_URL?>/home/allCategory">Katalog</a>
                     </li>
-                    <!-- <li class="menu-item mb-1">
-                      <a href="#">Blogs</a>
-                    </li>
-                    <li class="menu-item mb-1">
-                      <a href="#">Contact</a>
-                    </li> -->
+
                   </ul>
                 </div>
               </div>
-              <!-- <div class="col-lg-3 col-sm-6 pb-3">
-                <div class="footer-menu text-capitalize">
-                  <h5 class="widget-title pb-2">Help & Info Help</h5>
-                  <ul class="menu-list list-unstyled">
-                    <li class="menu-item mb-1">
-                      <a href="#">Track Your Order</a>
-                    </li>
-                    <li class="menu-item mb-1">
-                      <a href="#">Returns Policies</a>
-                    </li>
-                    <li class="menu-item mb-1">
-                      <a href="#">Shipping + Delivery</a>
-                    </li>
-                    <li class="menu-item mb-1">
-                      <a href="#">Hubungi kami</a>
-                    </li>
-                    <li class="menu-item mb-1">
-                      <a href="#">Faqs</a>
-                    </li>
-                  </ul>
-                </div>
-              </div> -->
+              |
               <div class="col-lg-3 col-sm-6 pb-3">
                 <div class="footer-menu contact-item">
                   <h5 class="widget-title text-capitalize pb-2">Hubungi kami</h5>
@@ -103,7 +43,7 @@
                   <p><a href="mailto:" class="text-decoration-underline">2400018010@webmail.uad.ac.id</a></p>
                   Muhamad Ardyan Yulianto
                   <p><a href="mailto:" class="text-decoration-underline">2400018033@webmail.uad.ac.id</a></p>
-                  Reza Aditya
+                  Rea Aditya
                   <p><a href="mailto:" class="text-decoration-underline">2400018009@webmail.uad.ac.id</a></p>
                   <!-- <p>If you need support? Just give us a call. <a href="#" class="text-decoration-underline">+55 111 222
                       333 44</a></p> -->
@@ -115,26 +55,10 @@
       </div>
     </footer>
     <hr>
+
     <div id="footer-bottom" class="mb-2">
       <div class="container">
         <div class="d-flex flex-wrap justify-content-between">
-          <div class="ship-and-payment d-flex gap-md-5 flex-wrap">
-            <!-- <div class="shipping d-flex">
-              <p>We ship with:</p>
-              <div class="card-wrap ps-2">
-                <img src="images/dhl.png" alt="visa">
-                <img src="images/shippingcard.png" alt="mastercard">
-              </div>
-            </div>
-            <div class="payment-method d-flex">
-              <p>Payment options:</p>
-              <div class="card-wrap ps-2">
-                <img src="images/visa.jpg" alt="visa">
-                <img src="images/mastercard.jpg" alt="mastercard">
-                <img src="images/paypal.jpg" alt="paypal">
-              </div>
-            </div> -->
-          </div>
           <div class="copyright">
             <p>© Copyright <?= date("Y") ?> Toko Sigma
             </p>

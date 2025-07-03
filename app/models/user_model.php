@@ -25,6 +25,7 @@ class user_model
         return $this->db->single();
     }
 
+    // Mengambil data user berdasarkan email
     public function getUserbyEmail($email_user) {
         $email_user_modified = htmlspecialchars($email_user);
         $this->db->Query("SELECT * FROM ". $this->table. " WHERE email_user = :email_user");
@@ -89,7 +90,7 @@ class user_model
         endif;
     }
 
-    // cekPasswordLama cek password lama lewat input update
+    // Cek password lama lewat input update
     public function cekPasswordLama($data) {
         
         if (!isset($data['nama_user']) || !isset($data['password_user'])) {
@@ -254,5 +255,26 @@ class user_model
         $this->db->execute();
 
         return $this->db->rowCount();
+    }
+
+
+    public function ambilSemuaBukuDarIdkategori($id){
+        $this->db->Query("SELECT * FROM buku WHERE id_kategori = :id");
+        $this->db->Bind(":id", $id);
+        $this->db->execute();
+        return $this->db->resultSet();
+    }
+
+    public function ambilSemuaBuku(){
+        $this->db->Query("SELECT * FROM buku");
+        $this->db->execute();
+        return $this->db->resultSet();
+    }
+
+    public function ambilBukuById($id){
+        $this->db->Query("SELECT * FROM buku WHERE id = :id");
+        $this->db->Bind(":id",  $id);
+        $this->db->execute();
+        return $this->db->single();
     }
 }

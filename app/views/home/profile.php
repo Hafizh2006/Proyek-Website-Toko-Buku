@@ -47,8 +47,11 @@
       </div>
 
       <!-- Buttons -->
+      
+      <!-- href yang ada echonya menandakan ia akan mengirim id ke file yang dituju lewat href -->
       <div class="d-flex gap-2 mt-3">
         <a href="<?php echo BASE_URL?>/home/HalamanUpdate"><button class="btn btn-success btn-sm">Update Profile</button></a>
+        <a href="<?php echo BASE_URL ?>/home/riwayat/<?php echo $data['user']['id']?>" ><button class="btn btn-success btn-sm">Riwayat Pemesanan</button></a>
         <a href="<?php echo BASE_URL ?>/home/logout"><button class="btn btn-success btn-sm">Logout</button></a>
         <a href="<?php echo BASE_URL?>/home/deleteUser/<?php echo $data['user']['id']?>"><button class="btn btn-success btn-sm">Hapus Akun</button></a>
       </div>

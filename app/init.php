@@ -1,6 +1,6 @@
 <?php 
 
-
+// Ambil semua file yang dibutuhkan
 require_once "../app/core/App.php";
 require_once "../app/core/Controller.php";
 require_once "../app/core/flash.php";
