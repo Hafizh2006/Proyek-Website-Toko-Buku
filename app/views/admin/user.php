@@ -1,22 +1,13 @@
         <?php 
         //var_dump($data); die;
         ?>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">Navbar</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="<?php echo BASE_URL?>/admin/">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?php echo BASE_URL ?>/admin/user">User</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+        <div class="sidebar">
+        <h2>Toko Sigma</h2>
+        <a class="nav-link" href="<?php echo BASE_URL?>/admin/">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="<?php echo BASE_URL ?>/admin/user">User</a>
+        <a href="<?php echo BASE_URL?>/admin/logout">Log Out</a>
+        </div>
+        <div class="content">
         
         <!-- Pesan yang ditampilkan dalam setiap aksi -->
         <div>
@@ -26,7 +17,8 @@
         </div>
         
         <!--  penerapan tabel --> 
-        <table id="myTable" class="display">
+        <div class="table-container">
+            <table id="myTable" class="display">
                 <thead>
                     <tr>
                         <th><?php echo $data['kolom'][0]?></th>
@@ -52,3 +44,5 @@
                     <?php } ?>
                 </tbody>
         </table>
+        </div>
+        </div>

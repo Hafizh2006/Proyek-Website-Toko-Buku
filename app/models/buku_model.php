@@ -41,6 +41,33 @@ class buku_model
         return 0;
     }
 
+    // private function uploadFoto($files)
+    // {
+    //     $namaFile = $files['foto']['name'];
+    //     $tmpName = $files['foto']['tmp_name'];
+    //     $error = $files['foto']['error'];
+
+    //     if ($error === 4) { // 4 berarti tidak ada file yang diupload
+    //         Flash::setFlash('Peringatan', 'pilih gambar', 'terlebih dahulu', 'warning');
+    //         return false;
+    //     }
+
+    //     $ekstensiGambarValid = ['jpg', 'jpeg', 'png'];
+    //     $ekstensiGambar = strtolower(pathinfo($namaFile, PATHINFO_EXTENSION));
+    //     if (!in_array($ekstensiGambar, $ekstensiGambarValid)) {
+    //         Flash::setFlash('Peringatan', 'yang anda upload', 'bukan gambar', 'warning');
+    //         return false;
+    //     }
+
+    //     $namaFileBaru = uniqid() . '.' . $ekstensiGambar;
+    //     $pathTujuan = $_SERVER['DOCUMENT_ROOT'] . '/Proyek-Website-Toko-Buku/public/img/books/' . $namaFileBaru;
+
+    //     if (move_uploaded_file($tmpName, $pathTujuan)) {
+    //         return $namaFileBaru;
+    //     }
+    //     return false;
+    // }
+
 
 
     public function hapusBuku($id){

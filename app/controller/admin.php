@@ -17,7 +17,7 @@ class admin extends Controller {
 
             // Panggil model untuk mendapatkan data
         $tableData = $this->model("admin_model")->ambilTabel($selectedTable);
-        $data['kolom'] = ['id','Buku','Harga','Stok','penulis','kategori', 'foto'];
+        $data['kolom'] = ['id','Buku','Harga','Stok','penulis','kategori', 'foto', 'halaman', 'lebar', 'panjang', 'berat', 'sinopsis'];
         if ($tableData !== false) {      
             $data['judul'] = "Data Tabel " . ucfirst($selectedTable); 
             $data['tabelTerpilih'] = $selectedTable; 
@@ -196,10 +196,10 @@ class admin extends Controller {
     }
 
    
-    public function tambahBuku(){
+   public function tambahBuku(){
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $dataForm = $_POST; 
-            // var_dump($dataForm); var_dump($_FILES); die;
+            //var_dump($dataForm); var_dump($_FILES); die;
             
             $fotoFileName = null; 
             $uploadDir = "../public/backend/image/buku/"; 
@@ -255,7 +255,12 @@ class admin extends Controller {
                 'harga'       => $dataForm['harga'],
                 'penulis'     => $dataForm['penulis'],
                 'id_kategori' => $dataForm['id_kategori'],
-                'foto'        => $fotoFileName
+                'foto'        => $fotoFileName,
+                'halaman'        => $dataForm['halaman'],
+                'lebar'        => $dataForm['lebar'],
+                'panjang'        => $dataForm['panjang'],
+                'berat'        => $dataForm['berat'],
+                'sinopsis'        => $dataForm['sinopsis'],
             ];
 
             if ($this->model("admin_model")->tambahBuku($data) > 0){
@@ -267,8 +272,8 @@ class admin extends Controller {
                 header("Location:". BASE_URL. "/admin");
                 exit;
             }
-        }
-    }
+}
+}
 
     public function tambahKategori(){
         if ($this->model("admin_model")->tambahKategori($_POST) > 0){
@@ -301,7 +306,7 @@ class admin extends Controller {
 
 
     
-    public function ubahBuku($id = null) {  
+   public function ubahBuku($id = null) {  
         //  PENANGANAN POST REQUEST (Memproses form edit)
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $dataForm = $_POST; 
@@ -317,6 +322,9 @@ class admin extends Controller {
 
             //  Ambil data buku saat ini dari database untuk mendapatkan nilai lama 
             $currentBukuData = $this->model("admin_model")->ambilBukuDariId($idBuku);
+
+            // var_dump($currentBukuData);
+            // die;
 
             if (!$currentBukuData) {
                 Flash::setFlash("Gagal", "Buku tidak ditemukan saat proses update.", "danger");
@@ -377,7 +385,13 @@ class admin extends Controller {
                 'stok'        => !empty($dataForm['stok']) ? htmlspecialchars($dataForm['stok']) : $currentBukuData['stok'],
                 'harga'       => !empty($dataForm['harga']) ? htmlspecialchars($dataForm['harga']) : $currentBukuData['harga'],
                 'penulis'     => !empty($dataForm['penulis']) ? htmlspecialchars($dataForm['penulis']) : $currentBukuData['penulis'],
-                'id_kategori' => htmlspecialchars($dataForm['id_kategori']), // Asumsi select box selalu ada nilai
+                'id_kategori' => htmlspecialchars($dataForm['id_kategori']),
+                'halaman'     => !empty($dataForm['halaman']) ? htmlspecialchars($dataForm['halaman']) : $currentBukuData['halaman'],
+                'lebar'       => !empty($dataForm['lebar']) ? htmlspecialchars($dataForm['lebar']) : $currentBukuData['lebar'],
+                'panjang'     => !empty($dataForm['panjang']) ? htmlspecialchars($dataForm['panjang']) : $currentBukuData['panjang'],
+                'berat'       => !empty($dataForm['berat']) ? htmlspecialchars($dataForm['berat']) : $currentBukuData['berat'],
+                'sinopsis'    => !empty($dataForm['sinopsis']) ? htmlspecialchars($dataForm['sinopsis']) : $currentBukuData['sinopsis'],
+                'foto'        => $newFotoFileName,
             ];
 
             
@@ -398,8 +412,8 @@ class admin extends Controller {
                 header("Location:". BASE_URL. "/admin/ubahBuku/".$idBuku); 
                 exit();    
             }
-        }
-    }    
+}
+}
 
 
     public function hapus($id){

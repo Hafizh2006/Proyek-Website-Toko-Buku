@@ -21,7 +21,7 @@ class user_model
     public function getEmailUser($email_user) {
         $email_user_modified = htmlspecialchars($email_user);
         $this->db->Query("SELECT email_user FROM ". $this->table ." WHERE email_user = :email_user");
-        $this->db->Bind(':email_user', $$email_user_modified);
+        $this->db->Bind(':email_user', $email_user_modified);
         return $this->db->single();
     }
 

@@ -5340,11 +5340,16 @@ button.close {
 
 .modal-open {
   overflow: hidden;
+     padding-left: 300px; /* Adjust padding to prevent content overflow */
+      padding-right: 300px;
+      margin-left: 0px;
+      margin-right: 0px;
 }
 
 .modal-open .modal {
   overflow-x: hidden;
   overflow-y: auto;
+   
 }
 
 .modal {
@@ -5367,6 +5372,7 @@ button.close {
 }
 
 .modal.fade .modal-dialog {
+
   transition: -webkit-transform 0.3s ease-out;
   transition: transform 0.3s ease-out;
   transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out;
@@ -5430,6 +5436,10 @@ button.close {
 
 .modal-backdrop.show {
   opacity: 0.5;
+     padding-left: 300px; /* Adjust padding to prevent content overflow */
+      padding-right: 300px;
+      margin-left: 0px;
+      margin-right: 0px;
 }
 
 .modal-header {

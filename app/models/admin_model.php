@@ -77,7 +77,7 @@ class admin_model {
 
     // Tambah Buku
     public function tambahBuku($data){
-        // var_dump($data); var_dump($_FILES['foto']); die;
+        //var_dump($data); var_dump($_FILES['foto']); die;
 
             $nama = htmlspecialchars($data['nama']);
             $stok = htmlspecialchars($data['stok']);
@@ -85,9 +85,17 @@ class admin_model {
             $penulis = htmlspecialchars($data['penulis']);
             $id_kategori = htmlspecialchars($data['id_kategori']);
             $foto = htmlspecialchars($data['foto']);
+            $halaman = htmlspecialchars($data['halaman']);
+            $lebar = htmlspecialchars($data['lebar']);
+            $panjang  = htmlspecialchars($data['panjang']);
+            $berat =  htmlspecialchars($data['berat']);
+            $sinopsis = htmlspecialchars($data['sinopsis']);
             $query = "INSERT INTO buku
                         VALUES
-                        (NULL, :nama, :harga, :stok, :penulis, :id_kategori, :foto)";
+                        (NULL, :nama, :harga, :stok,
+                        :penulis, :id_kategori, :foto,
+                        :halaman, :lebar, :panjang,
+                        :berat, :sinopsis)";
             $this->db->Query($query);
             $this->db->Bind(":nama", $nama);
             $this->db->Bind(":harga", $harga);
@@ -95,15 +103,18 @@ class admin_model {
             $this->db->Bind(":penulis", $penulis);
             $this->db->Bind(":id_kategori", intval($id_kategori));
             $this->db->Bind(":foto", $foto);
+            $this->db->Bind(":halaman", intval($halaman));
+            $this->db->Bind(":lebar", floatval($lebar));
+            $this->db->Bind(":panjang", floatval($panjang));
+            $this->db->Bind(":berat", floatval($berat));
+            $this->db->Bind(":sinopsis", $sinopsis);
 
             $this->db->execute();
-
             return $this->db->rowCount();
             return 0;
-        
-        
-    }
+       
 
+}
 
     // Tambah Kategori
     public function tambahKategori($data){
@@ -146,28 +157,40 @@ class admin_model {
 
     // Update data buku
     public function ubah($data, $newFotoFileName = null){ // Ubah nama parameter dan nilai default
+        // var_dump($data); var_dump($newFotoFileName); die;
+        
         $query = "UPDATE buku SET
                     nama = :nama,
                     harga =  :harga,
                     stok =  :stok,
                     penulis =  :penulis,
-                    id_kategori =  :id_kategori";
+                    id_kategori =  :id_kategori,";
         
         if ($newFotoFileName !== null){ 
-            $query .= ", foto = :foto";
+            $query .= " foto = :foto,";
         }
 
-        $query .= " WHERE id = :id"; 
+       $query .= " halaman =  :halaman,
+                    lebar =  :lebar,
+                    panjang =  :panjang,
+                    berat =  :berat,
+                    sinopsis =  :sinopsis
+                    WHERE id = :id";  
 
         $this->db->Query($query);
 
-        // Bind parameter
+       // Bind parameter
         $this->db->Bind(":nama", $data['nama']);
         $this->db->Bind(":harga", $data['harga']);
         $this->db->Bind(":stok", $data['stok']);
         $this->db->Bind(":penulis", $data['penulis']);
         $this->db->Bind(":id_kategori", $data['id_kategori']);
-        $this->db->Bind(":id", $data['id']);     
+        $this->db->Bind(":halaman", intval($data['halaman']));
+        $this->db->Bind(":lebar", floatval($data['lebar']));
+        $this->db->Bind(":panjang", floatval($data['panjang']));
+        $this->db->Bind(":berat", floatval($data['berat']));
+        $this->db->Bind(":sinopsis", $data['sinopsis']);
+        $this->db->Bind(":id", $data['id']); 
         
         // Bind foto hanya jika ada foto baru
         if ($newFotoFileName !== null){
@@ -179,7 +202,29 @@ class admin_model {
         return $this->db->rowCount();
     }
 
+    // Ambil semua kategori
+    // public function getAllKategori() {
+    //     $this->db->Query("SELECT id, nama FROM kategori");
+    //     $results = $this->db->resultSet();
+        
+    //     if (!$results) {
+    //         return []; // Kembalikan array kosong jika tidak ada kategori
+    //     }
+
+    //     $kategori = [];
+    //     foreach ($results as $row) {
+    //         $kategori[$row['id']] = $row['nama'];
+    //     }
+    //     return $kategori;
+    // }
     
+    // // Ambil buku tapi dari id untuk update
+    // public function ambilBukuDariId($id) {
+    //     $this->db->Query("SELECT * FROM buku WHERE id = :id");
+    //     $this->db->Bind(':id', $id);
+    //     return $this->db->single(); 
+    // }
+
     // Ambil buku tapi dari id untuk update
     public function ambilBukuDariId($id) {
         $this->db->Query("SELECT * FROM buku WHERE id = :id");
@@ -198,6 +243,39 @@ class admin_model {
         return ($result && isset($result['foto'])) ? $result['foto'] : null; 
     }
 
+    // private function uploadFoto($files)
+    // {
+    //    // var_dump($files);die;
+    //     $namaFile = $files['foto']['name'];
+    //     $tmpName = $files['foto']['tmp_name'];
+    //     $error = $files['foto']['error'];
+
+    //     if ($error === 4) { // 4 berarti tidak ada file yang diupload
+    //         Flash::setFlash('Peringatan', 'pilih gambar', 'terlebih dahulu', 'warning');
+    //         return false;
+    //     }
+
+    //     $ekstensiGambarValid = ['jpg', 'jpeg', 'png'];
+    //     $ekstensiGambar = strtolower(pathinfo($namaFile, PATHINFO_EXTENSION));
+    //     if (!in_array($ekstensiGambar, $ekstensiGambarValid)) {
+    //         Flash::setFlash('Peringatan', 'yang anda upload', 'bukan gambar', 'warning');
+    //         return false;
+    //     }
+
+    //     $uploadDir = '../../public/backend/image/buku/user';  // Perbaikan path
+
+    //     // Periksa apakah direktori ada, jika tidak, coba buat
+    //     if (!is_dir($uploadDir)) {
+    //         mkdir($uploadDir, 0777, true);
+    //     }
+
+    //     $namaFileBaru = uniqid() . '.' . $ekstensiGambar;
+    //     $filePath = $uploadDir . $namaFileBaru;
+
+    //     return move_uploaded_file($tmpName, $filePath) ? $namaFileBaru : false;
+    // }
+
+    
 
 }
 ?>
