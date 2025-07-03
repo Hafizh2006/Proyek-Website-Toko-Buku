@@ -13,7 +13,7 @@ Website ini dikembangkan untuk memenuhi tugas proyek akhir mata kuliah Pemrogram
 | ---------------------    | ---------- | ------------------------------    |
 | Hafizh Ashshiddiqie      | 2400018003 | Github Manager / Project manager  |
 | Ridang Bima Pamungkas    | 2400018007 | Database Manager                  |
-| Muhammad Athailah        | 2400018032 | Frontend Developer                |
+| Muhammad Athailah        | 2400018010 | Frontend Developer                |
 | Muhamad Ardyan Yulianto  | 2400018033 | Backend Developer                 |
 | Reza Aditya              | 2400018009 | Project Manager / Tester          |
 
