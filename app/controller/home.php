@@ -3,6 +3,7 @@
 class Home extends Controller{
 
     public function  index() {
+        // Membuat array yang akan dikirimkan ke view bentuknya assosiatif
         $data['pendidikan'] =  $this->model("buku_model")->ambilSemuaBukuDarIdkategori("1");
         $data['novel'] = $this->model("buku_model")->ambilSemuaBukuDarIdkategori("4");
         $data['komik'] = $this->model("buku_model")->ambilSemuaBukuDarIdkategori("3");
@@ -15,25 +16,30 @@ class Home extends Controller{
 
     public function login(){
         $data['judul'] = "home";
+
+        // Seleksi apakah sudah mengirim post dari login ?
         if ($_SERVER['REQUEST_METHOD'] === 'POST'){
             $data = $_POST;
             
             //var_dump($data); die;
 
+            // cek email dan password 
             $cekEmail = $this->model("user_model")->cekEmailname($data);
             $cekPassword = $this->model("user_model")->cekPassword($data);
             
             //var_dump($cekEmail);
             //var_dump($cekPassword); die;
             
+            // Jika True keduanya maka lanjut
             if ($cekEmail === True && $cekPassword === True){
-                // Cek ada tidak cookiesnya
+                // Cek ada tidak cookiesnya 
                 if (isset($data['cookies'])){
+                    // Kenapa $data['cookies'] === on karena itu berbentuk checkbox
                     if ($data['cookies'] === "on"){
                         setcookie('key', hash('sha256', $data['email_user']), time() + 60);
                     }
                 }
-
+                // Buat session untuk semua bahwa ini telah login
                 $_SESSION['LoginUser'] = $this->model("user_model")->getUserbyEmail($data['email_user']);
                 //var_dump($_SESSION['LoginUser']); die;
                 header("Location:". BASE_URL. "/home");
@@ -52,11 +58,13 @@ class Home extends Controller{
     }
 
     public function signup(){
+        // Membuat array yang akan dikirimkan ke view bentuknya assosiatif
         $data['judul'] = "home";
         $data['pendidikan'] =  $this->model("buku_model")->ambilSemuaBukuDarIdkategori("1");
         $data['novel'] = $this->model("buku_model")->ambilSemuaBukuDarIdkategori("4");
         $data['komik'] = $this->model("buku_model")->ambilSemuaBukuDarIdkategori("3");
         
+        // Apakah ada data yang dikirim secara post
         if ($_SERVER['REQUEST_METHOD'] === 'POST'){
             $input = $_POST;
             // var_dump($input); die;
@@ -64,6 +72,7 @@ class Home extends Controller{
             
             $emailYangSudahAda = $this->model('user_model')->getEmailUser($input['email_user']);
 
+            // Berapa panjang inputan password
             if (strlen($input['password_user']) < 8){
                 echo "<script>alert('Password harus lebih dari 8 karakter')</script>";
                 $this->view("templates/header", $data);
@@ -72,6 +81,8 @@ class Home extends Controller{
                 exit();
             }
             //var_dump($emailYangSudahAda['email_user']); die;
+
+
             //  Seleksi email yang sama
             if ($emailYangSudahAda && isset($emailYangSudahAda['email_user']) && $input['email_user'] ===  $emailYangSudahAda['email_user']){
                 echo "<script>alert('Email sudah ada dan tidak bisa digunakan untuk sign up')</script>";
@@ -89,6 +100,7 @@ class Home extends Controller{
                 $this->view("templates/header");
                 exit();
             } else {
+
                 // Tidak berhsil sign in
                 echo "<script>alert('Gagal sign up')</script>";   
                 $this->view("templates/header", $data);
@@ -109,6 +121,7 @@ class Home extends Controller{
     public function updateUser(){
         $data['judul'] = "Update Profile";
         $data['user'] = $_SESSION['LoginUser'];
+        
         //  PENANGANAN POST REQUEST (Memproses form edit)
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $dataForm = $_POST; 
@@ -205,7 +218,7 @@ class Home extends Controller{
                 mkdir($uploadDir, 0777, true);
             }
 
-            // --- Logika Upload Foto Baru ---
+            //  Seleksi Upload Foto Baru ada dan error oada foto  = 0 
             if (isset($_FILES['foto']) && $_FILES['foto']['error'] === UPLOAD_ERR_OK) {
                 $file = $_FILES['foto'];
 
@@ -275,7 +288,6 @@ class Home extends Controller{
                 $this->view("templates/header");
                 exit();
             } else {
-
                 echo "<script>alert('Tidak berhasil mengubah');</script>";
                 if ($newFotoFileName && file_exists($fileDestination)) {
                     unlink($fileDestination);
@@ -309,6 +321,8 @@ class Home extends Controller{
     }
 
     public function logout(){
+        // sesi di hilangkan, diunset, di destroy, cookie dipercepat
+
         $_SESSION = [];
         session_unset();
         session_destroy();
@@ -372,17 +386,20 @@ class Home extends Controller{
     public function category($id){
         $data['judul'] = "Kategori";
         $data['kategori'] = $this->model("user_model")->ambilSemuaBukuDarIdkategori($id);
-        //var_dump($data['kategori'][0]['id_kategori']); die;
         $data['segmen'] = "";
-        if ($data['kategori'][0]['id_kategori'] === 1 || $data['kategori'][0]['id_kategori'] === '1'){
-            $data['segmen'] = "Pendidikan";
-        } else if ($data['kategori'][0]['id_kategori'] === 2 || $data['kategori'][0]['id_kategori'] === '2'){
-            $data['segmen'] = "Romansa";
-        } else if ($data['kategori'][0]['id_kategori'] === 3 || $data['kategori'][0]['id_kategori'] === '3'){
-            $data['segmen'] = "Komik";
-        } else if ($data['kategori'][0]['id_kategori']=== 4 || $data['kategori'][0]['id_kategori'] === '4'){
-            $data['segmen'] = "Novel";
+        if (!empty($data['kategori'])){
+            //var_dump($data['kategori'][0]['id_kategori']); die;
+            if ($data['kategori'][0]['id_kategori'] === 1 || $data['kategori'][0]['id_kategori'] === '1'){
+                $data['segmen'] = "Pendidikan";
+            } else if ($data['kategori'][0]['id_kategori'] === 2 || $data['kategori'][0]['id_kategori'] === '2'){
+                $data['segmen'] = "Romansa";
+            } else if ($data['kategori'][0]['id_kategori'] === 3 || $data['kategori'][0]['id_kategori'] === '3'){
+                $data['segmen'] = "Komik";
+            } else if ($data['kategori'][0]['id_kategori']=== 4 || $data['kategori'][0]['id_kategori'] === '4'){
+                $data['segmen'] = "Novel";
+            }    
         }
+        
         $this->view("templates/header", $data);
         $this->view("home/catalog", $data);
         $this->view("templates/footer"); 
@@ -407,6 +424,7 @@ class Home extends Controller{
         $data['user'] = $_SESSION['LoginUser'];
         $data['judul'] = "Keranjang";
         $data['keranjang'] = $this->model("keranjang_model")->ambilSemuaKeranjang($id);
+        
         $this->view("templates/header", $data);
         $this->view("home/cart", $data);
         $this->view("templates/footer");
@@ -500,9 +518,16 @@ class Home extends Controller{
     
         if ($_SERVER['REQUEST_METHOD'] === "POST"){
             $id_keranjang = $id;
-            $jumlah_baru = $_POST['jumlah'];
+
+            // Ambil jumlah baru dari array 'jumlah' menggunakan id keranjang sebagai key
+            if (!isset($_POST['jumlah'][$id_keranjang])) {
+                // Handle error jika data jumlah tidak ada, lalu redirect
+                header("Location:". BASE_URL . "/home/lihatCart/" . $_SESSION['LoginUser']['id']);
+                exit();
+            }
+            $jumlah_baru = $_POST['jumlah'][$id_keranjang];
     
-            // 1. Ambil item keranjang untuk mendapatkan id_buku
+            // Ambil item keranjang untuk mendapatkan id_buku
             $itemKeranjang = $this->model("keranjang_model")->getKeranjangById($id_keranjang);
             if (!$itemKeranjang) {
                 // Item tidak ditemukan, redirect kembali
@@ -510,7 +535,7 @@ class Home extends Controller{
                 exit();
             }
     
-            // 2. Ambil harga satuan buku dari tabel 'buku'
+            // Ambil harga satuan buku dari tabel 'buku'
             $buku = $this->model("buku_model")->getAllBukuById($itemKeranjang['id_buku']);
             if (!$buku) {
                 // Buku tidak ditemukan, redirect kembali
@@ -518,18 +543,18 @@ class Home extends Controller{
                 exit();
             }
     
-            // 3. Hitung total harga baru
+            // Hitung total harga baru
             $harga_satuan = $buku['harga'];
             $harga_total_baru = intval($harga_satuan) * intval($jumlah_baru);
     
-            // 4. Siapkan data untuk diupdate
+            // Siapkan data untuk diupdate
             $data_update = [
                 'id' => $id_keranjang,
                 'jumlah' => $jumlah_baru,
                 'harga' => $harga_total_baru
             ];
     
-            // 5. Update keranjang di database dan redirect
+            // Update keranjang di database dan redirect
             $this->model("keranjang_model")->ubahDataKeranjang($data_update);
             header("Location:". BASE_URL . "/home/lihatCart/" . $_SESSION['LoginUser']['id']);
             exit();
@@ -541,6 +566,134 @@ class Home extends Controller{
 
     } 
     
+
+    public function menuCheckout(){
+        $data['judul'] = "Checkout";
+        
+        if (!isset($_SESSION['LoginUser'])){
+            header("Location:". BASE_URL);
+            exit();
+        }
+        $data['user'] = $_SESSION['LoginUser'];
+
+        if ($_SERVER['REQUEST_METHOD'] === "POST"){
+            $dataForm = $_POST;
+            
+            // cek dan ada item yang dipilih
+            if (!isset($dataForm['selected_items']) || empty($dataForm['selected_items'])) {
+                //
+                header("Location:". BASE_URL . "/home/lihatCart/" . $data['user']['id']);
+                exit();
+            }
+
+            $selected_ids = $dataForm['selected_items'];
+            $id_user = $data['user']['id'];
+
+            // Ambil data item yang dipilih dari model
+            $data['items_checkout'] = $this->model("keranjang_model")->getKeranjangByMultipleIds($selected_ids, $id_user);
+            
+            // Hitung ulang total di sisi server untuk keamanan
+            $total_harga = 0;
+            foreach ($data['items_checkout'] as $item) {
+                $total_harga += $item['harga'];
+            }
+            $data['total_harga'] = $total_harga;
+
+            // 4. Tampilkan halaman checkout dengan data yang relevan
+            $this->view("templates/header", $data);
+            $this->view("home/checkout", $data);
+            $this->view("templates/footer");
+
+        } else {
+            // Jika halaman diakses langsung (GET), alihkan ke keranjang
+            header("Location:". BASE_URL . "/home/lihatCart/" . $data['user']['id']);
+            exit();
+        }
+    }
+
+    public function checkout() {
+        if (!isset($_SESSION['LoginUser'])){
+            echo "<script>alert('Maaf Coba login dahulu')</script>";
+            header("Location:". BASE_URL);
+            exit();
+        }
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+            $dataForm = $_POST;
+            //var_dump($dataForm); die;
+            $id_user = $_SESSION['LoginUser']['id'];
+            
+            $tanggalDanJam = $dataForm['tanggal_sekarang'] . " pada jam " . $dataForm['jam_sekarang'];
+            // 1. Validasi data yang masuk
+            if (!isset($dataForm['id_buku']) || !isset($dataForm['jumlah']) || !isset($dataForm['cart_item_ids']) || empty($dataForm['id_buku'])) {
+                Flash::setFlash("Gagal", "Tidak ada item yang diproses. Terjadi kesalahan.", "danger");
+                header("Location:". BASE_URL . "/home/lihatCart/" . $id_user);
+                exit();
+            }
+
+            // inisiasi variabel untuk update tabel keranjang setelah di checkout
+            $ids_buku = $dataForm['id_buku'];
+            $jumlah_dibeli = $dataForm['jumlah'];
+            $ids_keranjang = $dataForm['cart_item_ids'];
+            $nama_buku_array = $dataForm['nama_buku'];
+
+            // Gabungkan nama buku menjadi satu string untuk disimpan di riwayat
+            $semua_buku = implode(', ', $nama_buku_array);
+            $kodeBarang = uniqid("-");
+
+
+            // var_dump($semua_buku); 
+            // var_dump($kodeBarang);
+            // die;
+            
+            
+            $dataPesanan = [
+                'id_user'           => $id_user,
+                'semua_buku'        => $semua_buku,
+                'total'             => $dataForm['total'],
+                'tanggal_diterima'  => $tanggalDanJam,
+                'status'  => "Selesai",
+                'kode_barang' => $kodeBarang,
+                'metode_pembayaran' => $dataForm['payment']
+            ];
+
+            //var_dump($dataPesanan); die;
+            
+            // Update stok untuk setiap buku yang dibeli
+            for ($i = 0; $i < count($ids_buku); $i++) {
+                $this->model('buku_model')->updateStokBuku($ids_buku[$i], $jumlah_dibeli[$i]);
+            }
+
+            // Hapus item dari keranjang setelah checkout berhasil
+            foreach ($ids_keranjang as $id_keranjang) {
+                $this->model('keranjang_model')->hapusKeranjang($id_keranjang);
+            }
+
+            // Simpan riwayat pesanan ke database
+            $this->model('riwayat_model')->tambahRiwayatPesanan($dataPesanan);
+            Flash::setFlash("Berhasil", "Pesanan Anda telah berhasil dibuat dan akan segera diproses.", "success");
+            header("Location:". BASE_URL . "/home/riwayat/" . $id_user);
+            exit();
+        } else {
+            echo "<script>alert('Maaf sistem kami bermasalah coba lagi nanti')</script>";
+            header("Location:". BASE_URL);
+            exit();
+        }
+
+    }
+
+    public function riwayat($id){
+        $data['judul'] = "Riwayat Transaksi";
+        // Logika untuk mengambil data riwayat dari model bisa ditambahkan di sini
+        $data['riwayat'] = $this->model("riwayat_model")->ambilSemuaRiwayat($id);
+        
+
+        $this->view("templates/header", $data);
+        $this->view("home/riwayat", $data);
+        $this->view("templates/footer");
+    }
+
+
 
 }
 

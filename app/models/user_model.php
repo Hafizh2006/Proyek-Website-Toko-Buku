@@ -25,6 +25,7 @@ class user_model
         return $this->db->single();
     }
 
+    // Mengambil data user berdasarkan email
     public function getUserbyEmail($email_user) {
         $email_user_modified = htmlspecialchars($email_user);
         $this->db->Query("SELECT * FROM ". $this->table. " WHERE email_user = :email_user");
@@ -89,7 +90,7 @@ class user_model
         endif;
     }
 
-    // cekPasswordLama cek password lama lewat input update
+    // Cek password lama lewat input update
     public function cekPasswordLama($data) {
         
         if (!isset($data['nama_user']) || !isset($data['password_user'])) {

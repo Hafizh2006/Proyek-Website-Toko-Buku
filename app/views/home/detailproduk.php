@@ -36,9 +36,18 @@ $detailProduk = $data['produk'];
                         <input type="hidden" name="nama_buku" value="<?php echo $detailProduk['nama']?>">
                         <input type="hidden" name="foto_buku" value="<?php echo $detailProduk['foto']?>">
                         
-                        <div class="d-grid">
-                            <button type="submit" name="submit" class="btn btn-primary rounded-pill">Masukkan Keranjang</button>
-                        </div>
+                        <?php if ($detailProduk['stok'] > 0):?>
+                            <div class="d-grid">
+                                <button type="submit" name="submit" class="btn btn-primary rounded-pill">Masukkan Keranjang</button>
+                            </div>
+                        <?php endif; ?>
+
+                        <?php if ($detailProduk['stok'] == 0):?>
+                            <div class="d-grid">
+                                <button type="submit" name="submit" class="btn btn-primary rounded-pill" >Masukkan Keranjang</button readonly>
+                            </div>
+                        <?php endif; ?>
+
                     </form>
                 <?php else: ?>
                     <div class="d-grid">
