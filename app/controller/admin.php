@@ -102,55 +102,55 @@ class admin extends Controller {
     
 
 
-    public function sort(){
-        if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['optionTabel'])) {
-            $selectedTable = $data['optionTabel'] = $_GET['optionTabel'];
+    // public function sort(){
+    //     if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['optionTabel'])) {
+    //         $selectedTable = $data['optionTabel'] = $_GET['optionTabel'];
 
-            // Panggil model untuk mendapatkan data
-            $tableData = $this->model("admin_model")->ambilTabel($selectedTable);
+    //         // Panggil model untuk mendapatkan data
+    //         $tableData = $this->model("admin_model")->ambilTabel($selectedTable);
 
 
-            if ($selectedTable === "user"){
-                $data['kolom'] = ['id','password','username','alamat','nomer','email', 'foto','role'];
-            } else if ($selectedTable === "buku"){
-                $data['kolom'] = ['id','Buku','Harga','Stok','penulis','kategori', 'foto'];
-            } else if ($selectedTable === ""){
-                $data['kolom'] = ['id','password','username','alamat','nomer','email', 'foto','role'];
-            }
+    //         if ($selectedTable === "user"){
+    //             $data['kolom'] = ['id','password','username','alamat','nomer','email', 'foto','role'];
+    //         } else if ($selectedTable === "buku"){
+    //             $data['kolom'] = ['id','Buku','Harga','Stok','penulis','kategori', 'foto'];
+    //         } else if ($selectedTable === ""){
+    //             $data['kolom'] = ['id','password','username','alamat','nomer','email', 'foto','role'];
+    //         }
 
-            if ($tableData !== false) { // Cek apakah model berhasil mengembalikan data (bukan false)
-                // Data berhasil diambil, siapkan untuk dikirim ke view
-                $data['judul'] = "Data Tabel " . ucfirst($selectedTable); // Judul untuk view
-                $data['tabelTerpilih'] = $selectedTable; // Nama tabel yang dipilih
-                $processedTableData = [];
-                foreach ($tableData as $row) {
-                    $processedRow = array_values($row); // Ini akan mengkonversi array asosiatif menjadi numerik
-                    $processedTableData[] = $processedRow;
-                }
-                // var_dump($processedTableData); die;
-                $data['hasilTabel'] = $processedTableData;
-                // Hitung jumlah kolom 
-                // $jumlah_baris_pertama = count($data['hasilTabel'][0]);
-                $data['panjangKolom'] = !empty($data['hasilTabel'])? count($data['hasilTabel'][0]): 0;
+    //         if ($tableData !== false) { // Cek apakah model berhasil mengembalikan data (bukan false)
+    //             // Data berhasil diambil, siapkan untuk dikirim ke view
+    //             $data['judul'] = "Data Tabel " . ucfirst($selectedTable); // Judul untuk view
+    //             $data['tabelTerpilih'] = $selectedTable; // Nama tabel yang dipilih
+    //             $processedTableData = [];
+    //             foreach ($tableData as $row) {
+    //                 $processedRow = array_values($row); // Ini akan mengkonversi array asosiatif menjadi numerik
+    //                 $processedTableData[] = $processedRow;
+    //             }
+    //             // var_dump($processedTableData); die;
+    //             $data['hasilTabel'] = $processedTableData;
+    //             // Hitung jumlah kolom 
+    //             // $jumlah_baris_pertama = count($data['hasilTabel'][0]);
+    //             $data['panjangKolom'] = !empty($data['hasilTabel'])? count($data['hasilTabel'][0]): 0;
 
-                // Load view untuk menampilkan hasil tabel
-                $this->view('templates_admin/header', $data);
-                $this->view('admin/user', $data); // View ini akan menampilkan datanya
-                $this->view('templates_admin/footer');
-            } else {
-                // Gagal mengambil data (misal, tabel tidak valid atau error DB)
-                Flash::setFlash("Gagal", "Gagal mengambil data tabel " . $selectedTable, "danger");
-                header("Location:". BASE_URL. "/admin"); // Redirect kembali ke dashboard admin
-                exit;
-            }
+    //             // Load view untuk menampilkan hasil tabel
+    //             $this->view('templates_admin/header', $data);
+    //             $this->view('admin/user', $data); // View ini akan menampilkan datanya
+    //             $this->view('templates_admin/footer');
+    //         } else {
+    //             // Gagal mengambil data (misal, tabel tidak valid atau error DB)
+    //             Flash::setFlash("Gagal", "Gagal mengambil data tabel " . $selectedTable, "danger");
+    //             header("Location:". BASE_URL. "/admin"); // Redirect kembali ke dashboard admin
+    //             exit;
+    //         }
 
-        } else {
-            // Jika bukan GET request atau parameter tidak ada
-            Flash::setFlash("Perhatian", "Permintaan tidak valid.", "warning");
-            header("Location:". BASE_URL. "/admin"); // Redirect ke dashboard admin
-            exit;
-        }
-    }
+    //     } else {
+    //         // Jika bukan GET request atau parameter tidak ada
+    //         Flash::setFlash("Perhatian", "Permintaan tidak valid.", "warning");
+    //         header("Location:". BASE_URL. "/admin"); // Redirect ke dashboard admin
+    //         exit;
+    //     }
+    // }
 
 
     public function user(){
@@ -200,7 +200,7 @@ class admin extends Controller {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $dataForm = $_POST; 
             //var_dump($dataForm); var_dump($_FILES); die;
-            
+            // var_dump($_FILES['foto']); die;
             $fotoFileName = null; 
             $uploadDir = "../public/backend/image/buku/"; 
 
@@ -276,6 +276,7 @@ class admin extends Controller {
 }
 
     public function tambahKategori(){
+        //var_dump($_POST); die;
         if ($this->model("admin_model")->tambahKategori($_POST) > 0){
             Flash::setFlash("Berhasil ", "Berhasil menambah data tabel kategori ", "success");
             header("Location:". BASE_URL. "/admin");

@@ -1,5 +1,5 @@
         <?php 
-        //var_dump($data); die;
+        // var_dump($data); die;
         ?>
         <div class="sidebar">
         <h2>Toko Sigma</h2>
@@ -160,6 +160,7 @@
                                 <option value="2">Romansa</option>
                                 <option value="3">Komik</option>
                                 <option value="4">Novel</option>
+                                <option value="5">Perang</option>
                             </select>
                         </div>
                     </div>
