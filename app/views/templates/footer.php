@@ -7,7 +7,7 @@
               <div class="col-lg-3 col-sm-6 pb-3">
                 <div class="footer-menu">
                   <img src="<?php echo BASE_URL?>/frontend/images/logo-d.png" alt="logo" class="img-fluid mb-2">
-                  <p>Made with love💖</p>
+                  <p></p>
                 </div>
               </div>
 
